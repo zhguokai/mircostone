@@ -3,13 +3,18 @@ import os
 
 from tornado.web import Application
 import tornado.options
+
 from application.home.index.index import IndexHandler
 
 
-tornado.options.define("port", default=80, help="Run server on a specific port", type=int)
+tornado.options.define("port", default=8000, help="Run server on a specific port", type=int)
 os.path.join(os.path.dirname(__file__))
 
+
 class MainApplication():
+    """
+
+    """
 
     def createApplication(self):
         """
@@ -18,7 +23,7 @@ class MainApplication():
         handler = [(r"/.*", IndexHandler), ]
         settings = {
             "static_path": os.path.join(os.path.dirname(__file__), "static"),
-            "template_path":os.path.join(os.path.dirname(__file__), "templates"),
+            "template_path": os.path.join(os.path.dirname(__file__), "templates"),
             "debug": True,
         }
 
