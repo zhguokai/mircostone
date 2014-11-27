@@ -16,7 +16,7 @@ class AccessWeixinHandler(RequestHandler):
         print("dddddddddddddd")
         token = "zgkAndHxh"
 
-        listWeixin = list[token, timestamp, nonce]
+        listWeixin = [token, timestamp, nonce]
         listWeixin.sort()
         sha1 = hashlib.sha1()
         map(sha1.update, listWeixin)
