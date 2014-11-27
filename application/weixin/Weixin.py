@@ -23,9 +23,9 @@ class AccessWeixinHandler(RequestHandler):
         hashcode = sha1.hexdigest()
 
         if hashcode == signature:
-            return echostr
+            self.write(echostr)
         else:
-            return False
+            self.write('False')
 
 
 __author__ = 'zhgk'
