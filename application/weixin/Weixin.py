@@ -7,6 +7,7 @@ from tornado.web import RequestHandler
 
 class AccessWeixinHandler(RequestHandler):
     def get(self):
+        print("dddddddd")
         signature = self.get_argument("signature")
         timestamp = self.get_argument("timestamp")
         nonce = self.get_argument("nonce")
