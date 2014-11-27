@@ -23,7 +23,7 @@ class MainApplication():
         """""
         handler = [
             (r"/.*", IndexHandler),
-            (r"/AccessWeixin.*", AccessWeixinHandler)
+            (r"/AccessWeixin", AccessWeixinHandler)
 
         ]
         settings = {
