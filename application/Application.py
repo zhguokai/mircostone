@@ -8,7 +8,7 @@ from application.home.index.index import IndexHandler
 from application.weixin.Weixin import AccessWeixinHandler
 
 
-tornado.options.define("port", default=80, help="Run server on a specific port", type=int)
+tornado.options.define("port", default=8080, help="Run server on a specific port", type=int)
 os.path.join(os.path.dirname(__file__))
 
 
@@ -22,7 +22,7 @@ class MainApplication():
         :return:
         """""
         handler = [
-            (r"/.*", IndexHandler),
+            (r"/", IndexHandler),
             (r"/AccessWeixin", AccessWeixinHandler)
 
         ]
