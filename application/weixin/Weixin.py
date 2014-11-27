@@ -12,8 +12,8 @@ class AccessWeixinHandler(RequestHandler):
         nonce = self.get_argument("nonce")
         echostr = self.get_argument("echostr")
 
-        print("weixin: %s : %s : %s" % signature % timestamp % nonce)
-
+        #print("weixin: %s : %s : %s" %signature %timestamp% nonce)
+        print("dddddddddddddd")
         token = "zgkAndHxh"
 
         listWeixin = list[token, timestamp, nonce]
