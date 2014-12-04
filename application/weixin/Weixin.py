@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+import sys
+sys.setdefaultencoding('utf-8')
 import hashlib
 import xml.etree.ElementTree as Etr
 
@@ -36,8 +37,9 @@ class AccessWeixinHandler(RequestHandler):
         接收用户请求
         :return:
         """""
+        print("ddd: %s" %self.request.body)
         # 消息体
-        msgXml = self.request.body.decode(encoding='utf-8')
+        msgXml = self.request.body.decode(encoding='ascii')
         print("ddd: %s" %msgXml)
         # 转换为XMLData
         msgData = Etr.fromstring(msgXml)
