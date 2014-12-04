@@ -38,6 +38,7 @@ class AccessWeixinHandler(RequestHandler):
         """""
         # 消息体
         msgXml = self.request.body.decode(encoding='utf-8')
+        print("ddd: %s" %msgXml)
         # 转换为XMLData
         msgData = Etr.fromstring(msgXml)
 
