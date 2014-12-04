@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
+import time
+
 
 class MsgTextController:
     def __init__(self):
         pass
 
-    @staticmethod
-    def reciveTextMsg(msgData):
+
+    def reciveTextMsg(self, requstHandler, msgData):
         """
             处理文本消息
         :param msgData:
@@ -26,8 +28,35 @@ class MsgTextController:
         # 消息内容
         content = msgData.find('Content').text
 
+        # 根据消内容，确认回复消息
+        # sendMsgConent = getSendMsg(content)
+        sendMsgContent = "你在说什么？我又不认识你。。。"
+
+        sendMsgData = {"toUser": fromUserName, "fromUser": toUserName, "msgType": msgType, "sendMsg": sendMsgContent}
+
         print("msg: %s" % content)
 
-    def sendTextMsg(self,msgData):
-        pass
+        self.sendTextMsg(requstHandler, sendMsgData)
+
+
+    def sendTextMsg(self, requstHandler, sendMsgData):
+        """
+            发送文本消息
+        """
+
+        sendXmlStr = \
+            """<xml>
+                    <ToUserName><![CDATA[""" + sendMsgData["toUser"] + """]]></ToUserName>
+                <FromUserName><![CDATA[""" + sendMsgData["fromUser"] + """]]></FromUserName>
+                <CreateTime>""" + int(time.time()) + """</CreateTime>
+                <MsgType><![CDATA[""" + sendMsgData["MsgType"] + """]]></MsgType>
+                <Content><![CDATA[""" + sendMsgData["sendMsg"] + """]]></Content>
+            </xml>
+        ""
+
+        """
+        print(sendXmlStr)
+        requstHandler.write(sendXmlStr.encode(encoding='utf-8'))
+
+
 __author__ = 'zhgk'

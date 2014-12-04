@@ -48,7 +48,8 @@ class AccessWeixinHandler(RequestHandler):
 
             if msgType == "text":
                 #调用文本消息处理
-                MsgTextController.reciveTextMsg(msgData)
+               msgControl = MsgTextController()
+               msgControl.reciveTextMsg(self,msgData)
 
         except AttributeError as ae:
             print(ae)
