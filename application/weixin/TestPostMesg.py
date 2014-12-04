@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import urllib.request
-import urllib.request
+import urllib2
+
 
 
 data = """
@@ -14,10 +14,8 @@ data = """
  </xml>
 """
 
-req = urllib.request.Request("http://localhost:8080/AccessWeixin", data=data.encode(encoding='utf-8'), method='POST')
-
-# "Content-type", "text/xml; charset=\"UTF-8\""
+req = urllib2.Request("http://localhost:8080/AccessWeixin", data=data.encode(encoding='utf-8'))
 req.add_header("Content-type", "text/xml; charset='UTF-8'")
-res = urllib.request.urlopen(req)
-
+res = urllib2.urlopen(req)
+print(res)
 __author__ = 'zhgk'

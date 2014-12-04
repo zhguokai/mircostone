@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import hashlib
 import xml.etree.ElementTree as Etr
 
@@ -36,10 +38,10 @@ class AccessWeixinHandler(RequestHandler):
         接收用户请求
         :return:
         """""
-        print("ddd: %s" %self.request.body)
+
         # 消息体
-        msgXml = self.request.body.decode(encoding='ascii')
-        print("ddd: %s" %msgXml)
+        msgXml = self.request.body.decode(encoding='utf-8')
+
         # 转换为XMLData
         msgData = Etr.fromstring(msgXml)
 
@@ -50,11 +52,11 @@ class AccessWeixinHandler(RequestHandler):
             if msgType == "text":
                 #调用文本消息处理
                msgControl = MsgTextController()
-               sendMsg = msgControl.reciveTextMsg(msgData)
-               print(sendMsg)
+               msgControl.reciveTextMsg(self,msgData)
+               #print(sendMsg)
                self.set_header("Content-type", "text/xml; charset='UTF-8'")
                print("GGGGGGGGGGGGGGGGGGGGGG")
-               self.write(sendMsg)
+               #self.write(sendMsg)
 
         except AttributeError as ae:
             print(ae)

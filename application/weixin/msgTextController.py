@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import time
-
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 class MsgTextController:
     def __init__(self):
         pass
@@ -36,8 +37,8 @@ class MsgTextController:
 
         print("msg: %s" % content)
 
-        sendMsgXML = self.sendTextMsg(sendMsgData)
-        return sendMsgXML
+        self.sendTextMsg(requstHandler, sendMsgData)
+        return True
 
 
     def sendTextMsg(self, requstHandler, sendMsgData):
@@ -49,15 +50,16 @@ class MsgTextController:
             """<xml>
                     <ToUserName><![CDATA[""" + sendMsgData["toUser"] + """]]></ToUserName>
                 <FromUserName><![CDATA[""" + sendMsgData["fromUser"] + """]]></FromUserName>
-                <CreateTime>""" + int(time.time()) + """</CreateTime>
-                <MsgType><![CDATA[""" + sendMsgData["MsgType"] + """]]></MsgType>
+                <CreateTime>""" + str(int(time.time())) + """</CreateTime>
+                <MsgType><![CDATA[""" + sendMsgData["msgType"] + """]]></MsgType>
                 <Content><![CDATA[""" + sendMsgData["sendMsg"] + """]]></Content>
             </xml>
         ""
 
         """
-        print(sendXmlStr)
-        return sendXmlStr
+        requstHandler.set_header("Content-type", "text/xml; charset='UTF-8'")
+        requstHandler.write(sendXmlStr)
+        return True
 
 
 __author__ = 'zhgk'
