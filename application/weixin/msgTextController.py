@@ -3,10 +3,10 @@ import time
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 class MsgTextController:
     def __init__(self):
         pass
-
 
     def reciveTextMsg(self, requstHandler, msgData):
         """
@@ -35,8 +35,8 @@ class MsgTextController:
 
         sendMsgData = {"toUser": fromUserName, "fromUser": toUserName, "msgType": msgType, "sendMsg": sendMsgContent}
 
-        print("msg: %s" % content)
 
+        #调用回复文本消息方法
         self.sendTextMsg(requstHandler, sendMsgData)
         return True
 
@@ -53,10 +53,10 @@ class MsgTextController:
                 <CreateTime>""" + str(int(time.time())) + """</CreateTime>
                 <MsgType><![CDATA[""" + sendMsgData["msgType"] + """]]></MsgType>
                 <Content><![CDATA[""" + sendMsgData["sendMsg"] + """]]></Content>
-            </xml>
-        ""
+                </xml>
+            """
 
-        """
+
         requstHandler.set_header("Content-type", "text/xml; charset='UTF-8'")
         requstHandler.write(sendXmlStr)
         return True
