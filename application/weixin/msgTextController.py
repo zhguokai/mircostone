@@ -36,7 +36,8 @@ class MsgTextController:
 
         print("msg: %s" % content)
 
-        self.sendTextMsg(requstHandler, sendMsgData)
+        sendMsgXML = self.sendTextMsg(sendMsgData)
+        return sendMsgXML
 
 
     def sendTextMsg(self, requstHandler, sendMsgData):
@@ -56,8 +57,7 @@ class MsgTextController:
 
         """
         print(sendXmlStr)
-        requstHandler.set_header("Content-Type", "text/xml; charset=UTF-8")
-        requstHandler.write(sendXmlStr.encode(encoding='utf-8'))
+        return sendXmlStr
 
 
 __author__ = 'zhgk'

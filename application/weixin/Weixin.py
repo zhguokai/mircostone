@@ -45,11 +45,14 @@ class AccessWeixinHandler(RequestHandler):
         try:
 
             msgType = msgData.find('MsgType').text
-
             if msgType == "text":
                 #调用文本消息处理
                msgControl = MsgTextController()
-               msgControl.reciveTextMsg(self,msgData)
+               sendMsg = msgControl.reciveTextMsg(msgData)
+               print(sendMsg)
+               self.set_header("Content-type", "text/xml; charset='UTF-8'")
+               print("GGGGGGGGGGGGGGGGGGGGGG")
+               self.write(sendMsg)
 
         except AttributeError as ae:
             print(ae)
