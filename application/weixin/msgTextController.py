@@ -56,7 +56,7 @@ class MsgTextController:
                 </xml>
             """
 
-
+        #设置返回消息头
         requstHandler.set_header("Content-type", "text/xml; charset='UTF-8'")
         requstHandler.write(sendXmlStr)
         return True
