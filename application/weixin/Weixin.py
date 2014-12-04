@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys
-sys.setdefaultencoding('utf-8')
+
 import hashlib
 import xml.etree.ElementTree as Etr
 
