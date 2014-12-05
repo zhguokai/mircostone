@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 import hashlib
@@ -8,11 +9,27 @@ import xml.etree.ElementTree as Etr
 #
 
 from tornado.web import RequestHandler
+# 引入自定义包
+from application.Logger import weixinLogger
+from application.weixin.msgcontroller import MsgTextController
+from application.weixin.msgcontroller import MsgImgController
+from application.weixin.msgcontroller import MsgVoiceController
+from application.weixin.msgcontroller import MsgVideoController
+from application.weixin.msgcontroller import MsgLinkController
+from application.weixin.msgcontroller import MsgLocationController
+from application.weixin.msgcontroller import MsgEventController
 
-from application.weixin.msgTextController import MsgTextController
+
+# 定义日志工具
+log = weixinLogger.getInstance().logging
 
 
 class AccessWeixinHandler(RequestHandler):
+    """
+    微信处理类
+    """
+
+
     def get(self):
         signature = self.get_argument("signature")
         timestamp = self.get_argument("timestamp")
@@ -22,10 +39,10 @@ class AccessWeixinHandler(RequestHandler):
         # print("weixin: %s : %s : %s" %signature %timestamp% nonce)
 
         token = "zgkAndHxh"
-        listWeixin = [token, timestamp, nonce]
+        listWeixin = [token,timestamp,nonce]
         listWeixin.sort()
         sha1 = hashlib.sha1()
-        map(sha1.update, listWeixin)
+        map(sha1.update,listWeixin)
         hashcode = sha1.hexdigest()
         
         if hashcode == signature:
@@ -33,6 +50,7 @@ class AccessWeixinHandler(RequestHandler):
         else:
             self.write('False')
     
+
     def post(self):
         """
         接收用户请求
@@ -40,26 +58,51 @@ class AccessWeixinHandler(RequestHandler):
         """""
 
         # 消息体
-        msgXml = self.request.body.decode(encoding='utf-8')
-
+        msgxml = self.request.body.decode(encoding = 'utf-8')
+        log.info("接收消息体： %s" % msgxml)
         # 转换为XMLData
-        msgData = Etr.fromstring(msgXml)
+        msgdata = Etr.fromstring(msgxml)
 
         # 处理消息数据
         try:
-
-            msgType = msgData.find('MsgType').text
-            if msgType == "text":
-                #调用文本消息处理
-               msgControl = MsgTextController()
-               msgControl.reciveTextMsg(self,msgData)
-               #print(sendMsg)
-               self.set_header("Content-type", "text/xml; charset='UTF-8'")
-               print("GGGGGGGGGGGGGGGGGGGGGG")
-               #self.write(sendMsg)
-
-        except AttributeError as ae:
-            print(ae)
+            msgtype = msgdata.find('MsgType').text
+            log.info("消息类型：%s" % msgtype)
+            if msgtype == "text":
+                # 调用文本消息处理
+                msgcontrol = MsgTextController()
+                msgcontrol.reciveTextMsg(self,msgdata)
+            elif msgtype == "image":
+                # 处理图片
+                msgcontrol = MsgImgController()
+                msgcontrol.reciveImgMsg(self,msgdata)
+                pass
+            elif msgtype == "voice":
+                # 声音消息
+                msgcontrol = MsgVoiceController()
+                msgcontrol.reciveVoiceMsg(self,msgdata)
+                pass
+            elif msgtype == "video":
+                # 视图
+                msgcontrol = MsgVideoController()
+                msgcontrol.reciveVideoMsg(self,msgdata)
+                pass
+            elif msgtype == "location":
+                # 地理位置
+                msgcontrol = MsgLocationController()
+                msgcontrol.reciveLocationMsg(self,msgdata)
+                pass
+            elif msgtype == "link":
+                # 链接
+                msgcontrol = MsgLinkController()
+                msgcontrol.reciveLinkMsg(self,msgdata)
+                pass
+            elif msgtype == "event":
+                log.info("事件类型处理")
+                # 处理事件
+                msgcontrol = MsgEventController()
+                msgcontrol.reciveEventMsg(self,msgdata)
+        except BaseException as e:
+            log.error("出现异常：%s" % e)
 
 
 __author__ = 'zhgk'

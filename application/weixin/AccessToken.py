@@ -1,21 +1,24 @@
 # -*- coding: utf-8 -*
 import time
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
-import urllib.request
-import urllib.response
-import urllib.error
+import urllib
 import json
 #
 from application.weixin.WxConfig import WeiXinConfig
+from application.Logger import weixinLogger
 #
 """
 获取微信授权凭证
 """
-
-
+#定义日志属性类
+acLog = weixinLogger.getInstance().logging
 class AccessToken:
     # 定义单实例变量
-    instance = None
+    __instance = None
+
 
     def __init__(self):
         # 访问凭证
@@ -29,6 +32,7 @@ class AccessToken:
         需要URl
         :return: self.accToken
         """
+
         if (self.accToken is None) or (time.time() - self.accTokeGetTime > WeiXinConfig.APP_ACCESS_TOKEN_YXQ):
             self.accToken = ""
             try:
@@ -64,18 +68,19 @@ class AccessToken:
 
     @staticmethod
     def getinstance():
-        if AccessToken.instance is None:
-            AccessToken.instance = AccessToken()
+        if AccessToken.__instance is None:
+            AccessToken.__instance = AccessToken()
         else:
             pass
 
-        return AccessToken.instance
+        return AccessToken.__instance
 
 
 if __name__ == "__main__":
     """
     测试方法
     """
+    acLog.info("AccessToken-" "测试")
     # ace = AccessToken.getinstance()
     # t1 = time.time()
     # print(ace.getaccestoken())
