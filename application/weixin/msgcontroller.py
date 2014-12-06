@@ -46,10 +46,11 @@ class MsgTextController:
         # 消息内容
         content = msgData.find('Content').text
         log.info("存储消息：%s" % content)
+        log.info("用户：%s" %fromUserName)
 
-        #user = UserInfo.get_userinfo_openid(fromUserName)
+        user = UserInfo.get_userinfo_openid(fromUserName)
 
-        #log.info("用户 %s 发来了消息: %s" %(user["nickname"],content))
+        log.info("用户 %s 发来了消息: %s" %(user["nickname"],content))
 
 
         """
@@ -75,7 +76,7 @@ class MsgTextController:
                          "2:我恨你\n" \
                          "3:我烦你\n" \
                          "4:我爱你\n" \
-                         "5:我不知道" \
+                         "5:我不知道\n" \
                          "<a href='pyweb.coding.io'>访问主页</a>\n"
         # sendMsgConent = getSendMsg(content)
 
