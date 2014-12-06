@@ -7,6 +7,7 @@ sys.setdefaultencoding('utf-8')
 
 from application.Logger import weixinLogger
 from application.weixin.userinfo import UserInfo
+from application.weixin.menu import MenuTool
 
 # 定义日志工具
 log = weixinLogger.getInstance().logging
@@ -70,6 +71,11 @@ class MsgTextController:
             sendMsgContent="老婆：我爱你哟"
         elif content=="5":
             sendMsgContent="老婆：我真的不知道ing"
+        elif content =="CM881212":
+            m = MenuTool()
+            m.createMenu()
+            sendMsgContent="目录创建完成"
+
         else:
             sendMsgContent = "你在说什么？我听不懂ing...\n"\
                          "1:我想你\n" \
