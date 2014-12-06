@@ -47,9 +47,9 @@ class MsgTextController:
         content = msgData.find('Content').text
         log.info("存储消息：%s" % content)
 
-        user = UserInfo.get_userinfo_openid(fromUserName)
+        #user = UserInfo.get_userinfo_openid(fromUserName)
 
-        log.info("用户 %s 发来了消息: %s" %(user["nickname"],content))
+        #log.info("用户 %s 发来了消息: %s" %(user["nickname"],content))
 
 
         """
