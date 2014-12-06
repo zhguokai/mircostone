@@ -16,5 +16,8 @@ class WeiXinConfig:
     # 访问凭证有效期(此处设为7000)
     APP_ACCESS_TOKEN_YXQ = 7000
 
+    #获取用户信息URL
+    APP_USER_URL="https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN"
+
 
 __author__ = 'zhgk'

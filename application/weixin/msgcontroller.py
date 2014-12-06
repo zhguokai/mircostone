@@ -6,6 +6,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from application.Logger import weixinLogger
+from application.weixin.userinfo import UserInfo
 
 # 定义日志工具
 log = weixinLogger.getInstance().logging
@@ -46,6 +47,11 @@ class MsgTextController:
         content = msgData.find('Content').text
         log.info("存储消息：%s" % content)
 
+        user = UserInfo.get_userinfo_openid(fromUserName)
+
+        log.info("用户 %s 发来了消息: %s" %(user["nickname"],content))
+
+
         """
         根据content去数据库中查询要回复的内容，如果存在，将查询的信息直接回复
         否则回复:你在说什么
@@ -55,9 +61,10 @@ class MsgTextController:
         # 根据消内容，确认回复消息
         # sendMsgConent = getSendMsg(content)
         sendMsgContent = "你在说什么？我又不认识你。。。\n" \
-                         "<a href='pyweb.coding.io'/>"
+                         "<a href='pyweb.coding.io'>来这看看吧</a>"
 
-        sendMsgData = { "toUser":fromUserName,"fromUser":toUserName,"msgType":msgType,"sendMsg":sendMsgContent }
+        sendMsgData = { "toUser":fromUserName,"fromUser":toUserName,"msgType":msgType,
+                        "sendMsg":sendMsgContent }
 
 
         # 调用回复文本消息方法
