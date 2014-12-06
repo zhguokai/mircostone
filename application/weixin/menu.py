@@ -13,8 +13,9 @@ class MenuTool:
 
 
     def createMenu(self):
-        url = WeiXinConfig.APP_MENU_CREATE_URL.replace("=ACCESS_TOKEN","="+AccessToken.getinstance().getaccestoken())
-        data = """
+        url = WeiXinConfig.APP_MENU_CREATE_URL.replace("=ACCESS_TOKEN","="
+                                                       +AccessToken.getinstance().getaccestoken())
+        dataStr = """
         {
             "button":[
                 {
@@ -60,7 +61,7 @@ class MenuTool:
             ]
         }
         """
-        req = urllib2.Request(url,data=data.encode(encoding='utf-8'))
+        req = urllib2.Request(url,data=dataStr.encode(encoding='utf-8'))
         req.add_header("Content-type", "text/json; charset='UTF-8'")
         res = urllib2.urlopen(req)
         print(res)
