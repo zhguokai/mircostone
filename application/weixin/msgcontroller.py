@@ -59,9 +59,26 @@ class MsgTextController:
 
 
         # 根据消内容，确认回复消息
+        if content == "1":
+            sendMsgContent="老婆：我想你了"
+        elif content=="2":
+            sendMsgContent="老婆：我恨你不理我"
+        elif content=="3":
+            sendMsgContent="老婆：我错了，不要烦弃俺"
+        elif content=="4":
+            sendMsgContent="老婆：我爱你哟"
+        elif content=="5":
+            sendMsgContent="老婆：我真的不知道ing"
+        else:
+            sendMsgContent = "你在说什么？我听不懂ing...\n"\
+                         "1:我想你\n" \
+                         "2:我恨你\n" \
+                         "3:我烦你\n" \
+                         "4:我爱你\n" \
+                         "5:我不知道" \
+                         "<a href='pyweb.coding.io'>访问主页</a>\n"
         # sendMsgConent = getSendMsg(content)
-        sendMsgContent = "你在说什么？我又不认识你。。。\n" \
-                         "<a href='pyweb.coding.io'>来这看看吧</a>"
+
 
         sendMsgData = { "toUser":fromUserName,"fromUser":toUserName,"msgType":msgType,
                         "sendMsg":sendMsgContent }
