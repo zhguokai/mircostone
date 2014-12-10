@@ -71,7 +71,7 @@ class MsgTextController:
         elif content == "5":
             sendMsgContent = "老婆：我真的不知道ing"
         elif content=="6":
-            sendMsgContent="<a href='http://hzbei.taobao.com/'>点击进行淘宝店</a>"
+            sendMsgContent="<a href='http://pyweb.coding.io?url=hzbei.taobao.com'>点击进行淘宝店</a>"
         elif content == "CM881212":
             m = MenuTool()
             m.createMenu()
