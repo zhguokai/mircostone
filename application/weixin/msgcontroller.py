@@ -8,6 +8,7 @@ sys.setdefaultencoding('utf-8')
 from application.Logger import weixinLogger
 from application.weixin.userinfo import UserInfo
 from application.weixin.menu import MenuTool
+from application.weixin.WxConfig import WeiXinConfig
 
 # 定义日志工具
 log = weixinLogger.getInstance().logging
@@ -71,7 +72,8 @@ class MsgTextController:
         elif content == "5":
             sendMsgContent = "老婆：我真的不知道ing"
         elif content=="6":
-            sendMsgContent="<a href='http://pyweb.coding.io?url=hzbei.taobao.com'>点击进行淘宝店</a>"
+            url = WeiXinConfig.APP_BASE_URL+"wxcq"
+            sendMsgContent="<a href='"+url+"'>算一挂</a>"
         elif content == "CM881212":
             m = MenuTool()
             m.createMenu()

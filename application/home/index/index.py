@@ -9,7 +9,7 @@ class IndexHandler(RequestHandler):
         #url = "http://"+self.request.argrument["url"]
         #self.redirect(url.decode(encoding='utf8'))
         # templeate = Template("home/index.html")
-        self.render('home/index.html')
+        self.render('home/yyy.html')
 
 
 __author__ = 'zhgk'

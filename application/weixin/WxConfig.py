@@ -21,6 +21,8 @@ class WeiXinConfig:
 
     APP_MENU_CREATE_URL="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN"
 
+    APP_BASE_URL="http://pyweb.coding.io/"
+
 
 
 __author__ = 'zhgk'
