@@ -17,7 +17,7 @@
 <body>
 <form id="wxcqForm" action="/wxcq" method="post">
     <div id="wxContener">
-        <img id="wxcq" style="padding:0px;width: 100px;height: 100px" src="{{ static_url('img/cq_01.jpg')}}">
+        <img id="wxcq" style="padding:0px;width: 100%;height: 100%" src="{{ static_url('img/cq_01.jpg')}}">
     </div>
     <div style="display: none">
         <audio id="yyRing" src="{{ static_url('ring/shake_sound_male.mp3')}}" preload="preload"></audio>
@@ -34,19 +34,16 @@
 </html>
 
 <script>
-
     //初始化图片
     var imgInit = function () {
-        var width = window.innerWidth;
-        var height = window.innerHeight;
+        var width = $(window).width();
+        var height = $(window).height();
         var stypeStr = "padding:0px;width:" + width + "px;height:" + height + "px";
-        document.getElementById("wxcq").setAttribute("style",stypeStr);
+        $("#wxcq").attr("style", stypeStr);
     };
- //页面加载完成时的事件
-    window.addEventListener("DOMContentLoaded",function(){
-        //初始化图片
+    //初始化方法
+    $(function () {
         imgInit();
-        //增加事件
         if (window.DeviceMotionEvent) {
             window.addEventListener('devicemotion', deviceMotionHandler, false);
         } else {

@@ -7,7 +7,6 @@ sys.setdefaultencoding('utf-8')
 
 from application.Logger import weixinLogger
 from application.weixin.userinfo import UserInfo
-from application.weixin.menu import MenuTool
 from application.weixin.WxConfig import WeiXinConfig
 
 # 定义日志工具
@@ -27,32 +26,29 @@ class MsgTextController:
         """
 
 
-    def reciveTextMsg(self,requstHandler,msgData):
+    def recive_text_msg(self,requesthandler,msg_data):
         """
             处理文本消息
-        :param msgData:
+        :param msg_data:
         :return:
         """
         # 消息类型
-        msgType = msgData.find('MsgType').text
+        msg_type = msg_data.find('MsgType').text
         # 公众账号
-        toUserName = msgData.find('ToUserName').text
+        to_user_name = msg_data.find('ToUserName').text
         # 来源用户名称
-        fromUserName = msgData.find('FromUserName').text
+        from_user_name = msg_data.find('FromUserName').text
         # 消创建时间
-        createTime = msgData.find('CreateTime').text
-        # 消息类型
-        msgType = msgData.find('MsgType').text
-        # 消息ID
-        msgid = msgData.find('MsgId').text
+        # create_time = msg_data.find('CreateTime').text
+
         # 消息内容
-        content = msgData.find('Content').text
-        log.info("存储消息：%s" % content)
-        log.info("用户：%s" % fromUserName)
+        msg_content = msg_data.find('Content').text
+        log.info("存储消息：%s" % msg_content)
+        log.info("用户：%s" % from_user_name)
 
-        user = UserInfo.get_userinfo_openid(fromUserName)
+        user = UserInfo.get_userinfo_openid(from_user_name)
 
-        log.info("用户 %s 发来了消息: %s" % (user["nickname"],content))
+        log.info("用户 %s 发来了消息: %s" % (user["nickname"],msg_content))
 
         """
         根据content去数据库中查询要回复的内容，如果存在，将查询的信息直接回复
@@ -61,62 +57,57 @@ class MsgTextController:
 
 
         # 根据消内容，确认回复消息
-        if content == "1":
-            sendMsgContent = "老婆：我想你了"
-        elif content == "2":
-            sendMsgContent = "老婆：我恨你不理我"
-        elif content == "3":
-            sendMsgContent = "老婆：我错了，不要烦弃俺"
-        elif content == "4":
-            sendMsgContent = "老婆：我爱你哟"
-        elif content == "5":
-            sendMsgContent = "老婆：我真的不知道ing"
-        elif content=="6":
-            url = WeiXinConfig.APP_BASE_URL+"wxcq"
-            sendMsgContent="<a href='"+url+"'>算一挂</a>"
-        elif content == "CM881212":
-            m = MenuTool()
-            m.createMenu()
-            sendMsgContent = "目录创建完成"
-
+        if msg_content == "1":
+            send_msg_content = "老婆：我想你了"
+        elif msg_content == "2":
+            send_msg_content = "老婆：我恨你不理我"
+        elif msg_content == "3":
+            send_msg_content = "老婆：我错了，不要烦弃俺"
+        elif msg_content == "4":
+            send_msg_content = "老婆：我爱你哟"
+        elif msg_content == "5":
+            send_msg_content = "老婆：我真的不知道ing"
+        elif msg_content == "6":
+            url = WeiXinConfig.APP_BASE_URL + "wxcq"
+            send_msg_content = "<a href='" + url + "'>算一挂</a>"
         else:
-            sendMsgContent = "你在说什么？我听不懂ing...\n"\
-                             "1:我想你\n"\
-                             "2:我恨你\n"\
-                             "3:我烦你\n"\
-                             "4:我爱你\n"\
-                             "5:我不知道\n"\
-                             "<a href='pyweb.coding.io'>参观一下吧</a>\n"
+            send_msg_content = "你在说什么？我听不懂ing...\n"\
+                               "1:我想你\n"\
+                               "2:我恨你\n"\
+                               "3:我烦你\n"\
+                               "4:我爱你\n"\
+                               "5:我不知道\n"\
+                               "<a href='pyweb.coding.io'>参观一下吧</a>\n"
         # sendMsgConent = getSendMsg(content)
 
 
-        sendMsgData = { "toUser":fromUserName,"fromUser":toUserName,"msgType":msgType,
-                        "sendMsg":sendMsgContent }
+        sendmsg_data = { "toUser":from_user_name,"fromUser":to_user_name,"msgType":msg_type,
+                         "sendMsg":send_msg_content }
 
 
         # 调用回复文本消息方法
-        self.sendTextMsg(requstHandler,sendMsgData)
+        self.send_text_msg(requesthandler,sendmsg_data)
         return True
 
 
-    def sendTextMsg(self,requstHandler,sendMsgData):
+    def send_text_msg(self,requesthandler,sendmsg_data):
         """
             发送文本消息
         """
 
-        sendXmlStr =\
+        send_xml_str =\
             """<xml>
-                    <ToUserName><![CDATA[""" + sendMsgData["toUser"] + """]]></ToUserName>
-                <FromUserName><![CDATA[""" + sendMsgData["fromUser"] + """]]></FromUserName>
+                    <ToUserName><![CDATA[""" + sendmsg_data["toUser"] + """]]></ToUserName>
+                <FromUserName><![CDATA[""" + sendmsg_data["fromUser"] + """]]></FromUserName>
                 <CreateTime>""" + str(int(time.time())) + """</CreateTime>
-                <MsgType><![CDATA[""" + sendMsgData["msgType"] + """]]></MsgType>
-                <Content><![CDATA[""" + sendMsgData["sendMsg"] + """]]></Content>
+                <MsgType><![CDATA[""" + sendmsg_data["msgType"] + """]]></MsgType>
+                <Content><![CDATA[""" + sendmsg_data["sendMsg"] + """]]></Content>
                 </xml>
             """
 
         # 设置返回消息头
-        requstHandler.set_header("Content-type","text/xml; charset='UTF-8'")
-        requstHandler.write(sendXmlStr)
+        requesthandler.set_header("Content-type","text/xml; charset='UTF-8'")
+        requesthandler.write(send_xml_str)
         return True
 
 
@@ -130,11 +121,11 @@ class MsgImgController:
         pass
 
 
-    def reciveImgMsg(self,requstHandler,msgData):
+    def reciveImgMsg(self,requesthandler,msg_data):
         """
         处理图片消息
-        :param requstHandler:
-        :param msgData:
+        :param requesthandler:
+        :param msg_data:
         :return:
         """
         pass
@@ -150,7 +141,7 @@ class MsgVoiceController:
         pass
 
 
-    def reciveVoiceMsg(self,requstHandler,msgData):
+    def reciveVoiceMsg(self,requesthandler,msg_data):
         pass
 
 
@@ -164,7 +155,7 @@ class MsgVideoController:
         pass
 
 
-    def reciveVideoMsg(self,requstHandler,msgData):
+    def reciveVideoMsg(self,requesthandler,msg_data):
         pass
 
 
@@ -178,7 +169,7 @@ class MsgLocationController:
         pass
 
 
-    def reciveLocationMsg(self,requstHandler,msgData):
+    def reciveLocationMsg(self,requesthandler,msg_data):
         pass
 
 
@@ -192,7 +183,7 @@ class MsgLinkController:
         pass
 
 
-    def reciveLinkMsg(self,requstHandler,msgData):
+    def reciveLinkMsg(self,requesthandler,msg_data):
         pass
 
 
@@ -206,50 +197,53 @@ class MsgEventController:
         pass
 
 
-    def reciveEventMsg(self,requstHandler,msgData):
+    def recive_event_msg(self,requesthandler,msg_data):
+
         log.info("开始解析接收者")
         # 公众账号
-        toUserName = msgData.find('ToUserName').text
+        to_user_name = msg_data.find('ToUserName').text
         log.info("开始解析发送者")
         # 来源用户名称
-        fromUserName = msgData.find('FromUserName').text
+        from_user_name = msg_data.find('FromUserName').text
         # 消创建时间
         log.info("开始解析创建时间")
-        createTime = msgData.find('CreateTime').text
+        #create_time = msg_data.find('CreateTime').text
         # 消息类型
         log.info("开始解析消息类型")
-        msgType = msgData.find('MsgType').text
+        msg_type = msg_data.find('MsgType').text
         # 消息ID
-        #log.info("开始解析消息ID ")
-        #msgid = msgData.find('MsgId').text
+        # log.info("开始解析消息ID ")
+        # msgid = msg_data.find('MsgId').text
         # 消息内容
         log.info("开始解析事件内容")
-        eventtype = msgData.find("Event").text
+        eventtype = msg_data.find("Event").text
+        # 定义返回消息变量
+        send_msg_content = ""
         if eventtype == "subscribe":
             log.info("订阅事件")
             # 订阅事件
-            sendMsgContent = "欢迎关注竹韵科技\n"\
-                             "1:我想你\n"\
-                             "2:我恨你\n"\
-                             "3:我烦你\n"\
-                             "4:我爱你\n"\
-                             "5:我不知道\n"\
-                             "<a href='pyweb.coding.io'>访问主页</a>\n"
+            send_msg_content = "欢迎关注竹韵科技\n"\
+                               "1:我想你\n"\
+                               "2:我恨你\n"\
+                               "3:我烦你\n"\
+                               "4:我爱你\n"\
+                               "5:我不知道\n"\
+                               "<a href='pyweb.coding.io'>访问主页</a>\n"
 
         elif eventtype == "unsubscribe":
             log.info("取消订阅事件")
             # 取消订阅事件
-            sendMsgContent = "非常抱歉，您取消了对我的关注！"
+            send_msg_content = "非常抱歉，您取消了对我的关注！"
         elif eventtype == "SCAN":
             log.info("打描事件")
             # 扫描订阅事件
-            sendMsgContent = "欢迎关注竹韵科技—扫描\n"\
-                             "1:我想你\n"\
-                             "2:我恨你\n"\
-                             "3:我烦你\n"\
-                             "4:我爱你\n"\
-                             "5:我不知道\n"\
-                             "<a href='pyweb.coding.io'>访问主页</a>\n"
+            send_msg_content = "欢迎关注竹韵科技—扫描\n"\
+                               "1:我想你\n"\
+                               "2:我恨你\n"\
+                               "3:我烦你\n"\
+                               "4:我爱你\n"\
+                               "5:我不知道\n"\
+                               "<a href='pyweb.coding.io'>访问主页</a>\n"
 
         elif eventtype == "LOCATION":
             # 上报地理位置事件
@@ -261,25 +255,25 @@ class MsgEventController:
             # 点击菜单跳转链接事件
             pass
 
-        sendMsgData = { "toUser":fromUserName,"fromUser":toUserName,"msgType":msgType,
-                        "sendMsg":sendMsgContent }
-        self.sendEventMsg(requstHandler,sendMsgData)
+        sendmsg_data = { "toUser":from_user_name,"fromUser":to_user_name,"msgType":msg_type,
+                         "sendMsg":send_msg_content }
+        self.send_event_msg(requesthandler,sendmsg_data)
 
 
-    def sendEventMsg(self,requstHandler,sendMsgData):
-        sendXmlStr =\
+    def send_event_msg(self,requesthandler,sendmsg_data):
+        send_xml_str =\
             """<xml>
-                <ToUserName><![CDATA[""" + sendMsgData["toUser"] + """]]></ToUserName>
-                <FromUserName><![CDATA[""" + sendMsgData["fromUser"] + """]]></FromUserName>
+                <ToUserName><![CDATA[""" + sendmsg_data["toUser"] + """]]></ToUserName>
+                <FromUserName><![CDATA[""" + sendmsg_data["fromUser"] + """]]></FromUserName>
                 <CreateTime>""" + str(int(time.time())) + """</CreateTime>
-                <MsgType><![CDATA[""" + sendMsgData["msgType"] + """]]></MsgType>
-                <Content><![CDATA[""" + sendMsgData["sendMsg"] + """]]></Content>
+                <MsgType><![CDATA[""" + sendmsg_data["msgType"] + """]]></MsgType>
+                <Content><![CDATA[""" + sendmsg_data["sendMsg"] + """]]></Content>
                 </xml>
             """
 
         # 设置返回消息头
-        requstHandler.set_header("Content-type","text/xml; charset='UTF-8'")
-        requstHandler.write(sendXmlStr)
+        requesthandler.set_header("Content-type","text/xml; charset='UTF-8'")
+        requesthandler.write(send_xml_str)
         return True
 
 

@@ -39,10 +39,10 @@ class AccessWeixinHandler(RequestHandler):
         # print("weixin: %s : %s : %s" %signature %timestamp% nonce)
 
         token = "zgkAndHxh"
-        listWeixin = [token,timestamp,nonce]
-        listWeixin.sort()
+        list_wei_xin = [token,timestamp,nonce]
+        list_wei_xin.sort()
         sha1 = hashlib.sha1()
-        map(sha1.update,listWeixin)
+        map(sha1.update,list_wei_xin)
         hashcode = sha1.hexdigest()
         
         if hashcode == signature:
@@ -61,46 +61,46 @@ class AccessWeixinHandler(RequestHandler):
         msgxml = self.request.body.decode(encoding = 'utf-8')
         log.info("接收消息体： %s" % msgxml)
         # 转换为XMLData
-        msgdata = Etr.fromstring(msgxml)
+        msg_data = Etr.fromstring(msgxml)
 
         # 处理消息数据
         try:
-            msgtype = msgdata.find('MsgType').text
+            msgtype = msg_data.find('MsgType').text
             log.info("消息类型：%s" % msgtype)
             if msgtype == "text":
                 # 调用文本消息处理
                 msgcontrol = MsgTextController()
-                msgcontrol.reciveTextMsg(self,msgdata)
+                msgcontrol.recive_text_msg(self,msg_data)
             elif msgtype == "image":
                 # 处理图片
                 msgcontrol = MsgImgController()
-                msgcontrol.reciveImgMsg(self,msgdata)
+                msgcontrol.reciveImgMsg(self,msg_data)
                 pass
             elif msgtype == "voice":
                 # 声音消息
                 msgcontrol = MsgVoiceController()
-                msgcontrol.reciveVoiceMsg(self,msgdata)
+                msgcontrol.reciveVoiceMsg(self,msg_data)
                 pass
             elif msgtype == "video":
                 # 视图
                 msgcontrol = MsgVideoController()
-                msgcontrol.reciveVideoMsg(self,msgdata)
+                msgcontrol.reciveVideoMsg(self,msg_data)
                 pass
             elif msgtype == "location":
                 # 地理位置
                 msgcontrol = MsgLocationController()
-                msgcontrol.reciveLocationMsg(self,msgdata)
+                msgcontrol.reciveLocationMsg(self,msg_data)
                 pass
             elif msgtype == "link":
                 # 链接
                 msgcontrol = MsgLinkController()
-                msgcontrol.reciveLinkMsg(self,msgdata)
+                msgcontrol.reciveLinkMsg(self,msg_data)
                 pass
             elif msgtype == "event":
                 log.info("事件类型处理")
                 # 处理事件
                 msgcontrol = MsgEventController()
-                msgcontrol.reciveEventMsg(self,msgdata)
+                msgcontrol.recive_event_msg(self,msg_data)
         except BaseException as e:
             log.error("出现异常：%s" % e)
 
