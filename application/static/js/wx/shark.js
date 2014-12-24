@@ -59,7 +59,7 @@ function deviceMotionHandler(eventData) {
         if (speed > SHAKE_THRESHOLD) {
             // TODO:在此处可以实现摇一摇之后所要进行的数据逻辑操作
             //记录源音频地址,播放摇一摇音频
-            document.getElementById('yyRing').play();
+            $("#yyRing")[0].play();
             //为了播放完音乐，延时1秒钟提交
             setTimeout("subData()",1000);
         }
@@ -73,5 +73,5 @@ function deviceMotionHandler(eventData) {
 
 //提交方法
 var subData = function(){
-     document.forms[0].submit();
+     $("#wxcqForm")[0].submit();
 }
