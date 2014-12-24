@@ -86,7 +86,7 @@ class MsgTextController:
                              "3:我烦你\n"\
                              "4:我爱你\n"\
                              "5:我不知道\n"\
-                             "<a href='pyweb.coding.io'>访问主页</a>\n"
+                             "<a href='pyweb.coding.io'>参观一下吧</a>\n"
         # sendMsgConent = getSendMsg(content)
 
 
@@ -207,21 +207,23 @@ class MsgEventController:
 
 
     def reciveEventMsg(self,requstHandler,msgData):
-
-        # 消息类型
-        msgType = msgData.find('MsgType').text
+        log.info("开始解析接收者")
         # 公众账号
         toUserName = msgData.find('ToUserName').text
+        log.info("开始解析发送者")
         # 来源用户名称
         fromUserName = msgData.find('FromUserName').text
         # 消创建时间
+        log.info("开始解析创建时间")
         createTime = msgData.find('CreateTime').text
         # 消息类型
+        log.info("开始解析消息类型")
         msgType = msgData.find('MsgType').text
         # 消息ID
+        log.info("开始解析消息ID ")
         msgid = msgData.find('MsgId').text
         # 消息内容
-
+        log.info("开始解析事件内容")
         eventtype = msgData.find("Event").text
         if eventtype == "subscribe":
             log.info("订阅事件")

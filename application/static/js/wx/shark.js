@@ -28,7 +28,7 @@
 // 从以上三点考虑，针对三个方向上的加速度进行计算，间隔测量他们，考察他们在固定时间段里的变化率，而且需要确定一个阀值来触发摇一摇之后的操作。
 
 // 首先，定义一个摇动的阀值
-var SHAKE_THRESHOLD = 1000;
+var SHAKE_THRESHOLD = 1500;
 // 定义一个变量保存上次更新的时间
 var last_update = 0;
 // 紧接着定义x、y、z记录三个轴的数据以及上一次出发的时间
@@ -59,7 +59,7 @@ function deviceMotionHandler(eventData) {
         if (speed > SHAKE_THRESHOLD) {
             // TODO:在此处可以实现摇一摇之后所要进行的数据逻辑操作
             //记录源音频地址,播放摇一摇音频
-            $("#yyRing")[0].play();
+            document.getElementById('yyRing').play();
             //为了播放完音乐，延时1秒钟提交
             setTimeout("subData()",1000);
         }
@@ -73,5 +73,5 @@ function deviceMotionHandler(eventData) {
 
 //提交方法
 var subData = function(){
-     $("#wxcqForm")[0].submit();
+     document.forms[0].submit();
 }

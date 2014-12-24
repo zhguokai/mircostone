@@ -30,14 +30,15 @@
 <script>
     //初始化图片
     var imgInit = function () {
-        var width = $(window).width();
-        var height = $(window).height();
+        var width = window.innerWidth;
+        var height = window.innerHeight;
         var stypeStr = "padding:0px;width:" + width + "px;height:" + height + "px";
-        $("#wxcq").attr("style", stypeStr);
+        document.getElementById("wxcq").setAttribute("style",stypeStr);
     };
-    //初始化方法
-    $(function () {
+    //页面加载完成时的事件
+    window.addEventListener("DOMContentLoaded",function(){
+        //初始化图片
         imgInit();
-        $("#okRing")[0].play();
+        document.getElementById('okRing').play();
     });
 </script>
