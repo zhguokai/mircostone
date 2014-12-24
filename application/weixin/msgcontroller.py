@@ -211,6 +211,8 @@ class MsgEventController:
         # 消息类型
         log.info("开始解析消息类型")
         msg_type = msg_data.find('MsgType').text
+        #回复消息类型
+        msg_type="text"
         # 消息ID
         # log.info("开始解析消息ID ")
         # msgid = msg_data.find('MsgId').text
