@@ -272,6 +272,7 @@ class MsgEventController:
             """
 
         # 设置返回消息头
+        log.info("发送订阅消息:"+send_xml_str)
         requesthandler.set_header("Content-type","text/xml; charset='UTF-8'")
         requesthandler.write(send_xml_str)
         return True
