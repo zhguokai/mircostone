@@ -220,8 +220,8 @@ class MsgEventController:
         log.info("开始解析消息类型")
         msgType = msgData.find('MsgType').text
         # 消息ID
-        log.info("开始解析消息ID ")
-        msgid = msgData.find('MsgId').text
+        #log.info("开始解析消息ID ")
+        #msgid = msgData.find('MsgId').text
         # 消息内容
         log.info("开始解析事件内容")
         eventtype = msgData.find("Event").text
