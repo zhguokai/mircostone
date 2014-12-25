@@ -41,6 +41,7 @@
         var stypeStr = "padding:0px;width:" + width + "px;height:" + height + "px";
         $("#wxcq").attr("style", stypeStr);
     };
+
     //初始化方法
     $(function () {
         imgInit();
@@ -49,5 +50,12 @@
         } else {
             alert('not support mobile event');
         }
+        if (window.plus) {
+            plusReady();
+        } else {
+            document.addEventListener("plusready", plusReady, false);
+        }
     });
+
+
 </script>

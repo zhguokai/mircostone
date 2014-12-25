@@ -28,7 +28,7 @@
 // 从以上三点考虑，针对三个方向上的加速度进行计算，间隔测量他们，考察他们在固定时间段里的变化率，而且需要确定一个阀值来触发摇一摇之后的操作。
 
 // 首先，定义一个摇动的阀值
-var SHAKE_THRESHOLD = 1500;
+var SHAKE_THRESHOLD = 1000;
 // 定义一个变量保存上次更新的时间
 var last_update = 0;
 // 紧接着定义x、y、z记录三个轴的数据以及上一次出发的时间
@@ -38,7 +38,7 @@ var z = 0;
 var last_x = 0;
 var last_y = 0;
 var last_z = 0;
-
+var length = 0;
 //定义事件捕捉器
 function deviceMotionHandler(eventData) {
     // 获取含重力的加速度
@@ -47,21 +47,27 @@ function deviceMotionHandler(eventData) {
     var curTime = new Date().getTime();
     var diffTime = curTime - last_update;
     // 固定时间段
-    if (diffTime > 100) {
-        //console.log("dddddd");
+    if (diffTime > 150) {
+        //console.log("dddddd");1
         //摇晃开始播放声音
         last_update = curTime;
         x = acceleration.x;
         y = acceleration.y;
         z = acceleration.z;
-        var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-
-        if (speed > SHAKE_THRESHOLD) {
+        // var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 15000;
+        //length += Math.abs(x + y + z - last_x - last_y - last_z) / 3;
+        var speed = Math.abs(z - last_z) / diffTime * 15000;
+        length += Math.abs(z - last_z);
+        //使晃动的时间长一些
+        if (speed > SHAKE_THRESHOLD && length > 100) {
+            length = 0;
+            //window.remove1EventListener('devicemotion', deviceMotionHandler);
             // TODO:在此处可以实现摇一摇之后所要进行的数据逻辑操作
             //记录源音频地址,播放摇一摇音频
-            $("#yyRing")[0].play();
+            //$("#yyRing")[0].play();
             //为了播放完音乐，延时1秒钟提交
-            setTimeout("subData()",1000);
+            setTimeout("subData()", 1500);
+            return;
         }
 
         last_x = x;
@@ -72,6 +78,7 @@ function deviceMotionHandler(eventData) {
 }
 
 //提交方法
-var subData = function(){
-     $("#wxcqForm")[0].submit();
+var subData = function () {
+   // $("#yyRing")[0].pause();
+    $("#wxcqForm")[0].submit();
 }

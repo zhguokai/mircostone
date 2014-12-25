@@ -207,12 +207,12 @@ class MsgEventController:
         from_user_name = msg_data.find('FromUserName').text
         # 消创建时间
         log.info("开始解析创建时间")
-        #create_time = msg_data.find('CreateTime').text
+        # create_time = msg_data.find('CreateTime').text
         # 消息类型
         log.info("开始解析消息类型")
         msg_type = msg_data.find('MsgType').text
         #回复消息类型
-        msg_type="text"
+        msg_type = "text"
         # 消息ID
         # log.info("开始解析消息ID ")
         # msgid = msg_data.find('MsgId').text
@@ -274,7 +274,7 @@ class MsgEventController:
             """
 
         # 设置返回消息头
-        log.info("发送订阅消息:"+send_xml_str)
+        log.info("发送订阅消息:" + send_xml_str)
         requesthandler.set_header("Content-type","text/xml; charset='UTF-8'")
         requesthandler.write(send_xml_str)
         return True
