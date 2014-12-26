@@ -23,8 +23,10 @@
         <img id="yb1" class="yb01Img" src="{{ static_url("img/index/yb01.png") }}"/>
         <img id="yb2" class="yb02Img" src="{{ static_url("img/index/yb02.png") }}"/>
         <img id="yb3" class="yb03Img" src="{{ static_url("img/index/yb03.png") }}"/>
+        <img id="result" class="resultImg" src="{{ static_url("img/index/result.jpg")}}"/>
+        <img id="result_yq" class="result_yqImg" src="{{ static_url("img/index/result_yq.png")}}"/>
     </div>
-
+<input type="hidden" id="cqjg_cur_time" name="cqjg_cur_time" value=""/>
 </form>
 </body>
 
@@ -42,6 +44,8 @@
         } else {
             alert("对不起，您的设备目前不支持此页面！");
         }
+
+        $("#result_yq").bind("click", subData);
     });
 
 
