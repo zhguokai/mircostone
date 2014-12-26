@@ -54,12 +54,12 @@ function deviceMotionHandler(eventData) {
         x = acceleration.x;
         y = acceleration.y;
         z = acceleration.z;
-         var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 15000;
+        var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
         length += Math.abs(x + y + z - last_x - last_y - last_z) / 3;
-       // var speed = Math.abs(z - last_z) / diffTime * 15000;
+        // var speed = Math.abs(z - last_z) / diffTime * 15000;
         //length += Math.abs(z - last_z);
         //使晃动的时间长一些
-        if (speed > SHAKE_THRESHOLD && length > 100) {
+        if (speed > SHAKE_THRESHOLD && length > 20) {
             length = 0;
             //window.remove1EventListener('devicemotion', deviceMotionHandler);
             // TODO:在此处可以实现摇一摇之后所要进行的数据逻辑操作
@@ -79,6 +79,6 @@ function deviceMotionHandler(eventData) {
 
 //提交方法
 var subData = function () {
-   // $("#yyRing")[0].pause();
+    // $("#yyRing")[0].pause();
     $("#wxcqForm")[0].submit();
 }
