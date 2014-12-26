@@ -54,10 +54,10 @@ function deviceMotionHandler(eventData) {
         x = acceleration.x;
         y = acceleration.y;
         z = acceleration.z;
-        // var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 15000;
-        //length += Math.abs(x + y + z - last_x - last_y - last_z) / 3;
-        var speed = Math.abs(z - last_z) / diffTime * 15000;
-        length += Math.abs(z - last_z);
+         var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 15000;
+        length += Math.abs(x + y + z - last_x - last_y - last_z) / 3;
+       // var speed = Math.abs(z - last_z) / diffTime * 15000;
+        //length += Math.abs(z - last_z);
         //使晃动的时间长一些
         if (speed > SHAKE_THRESHOLD && length > 100) {
             length = 0;
