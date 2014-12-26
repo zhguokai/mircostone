@@ -13,9 +13,10 @@
     <title>试试手气</title>
 
 </head>
-<body background="{{ static_url("img/index/bg.jpg")}}">
+<body>
 <form id="wxcqForm" action="/wxcq" method="post">
     <div id="wxContener">
+        <img id="bg" class="bgImg" src="{{ static_url("img/index/bg.jpg") }}"/>
         <img id="yb" class="ybImg" src="{{ static_url("img/index/yb.png") }}"/>
         <img id="qt" class="qtImg" src="{{ static_url("img/index/qt.png") }}"/>
         <img id="by" class="bxImg" src="{{ static_url("img/index/bx.png") }}"/>
