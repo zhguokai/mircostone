@@ -9,21 +9,21 @@
     <link href="{{ static_url('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="{{ static_url('css/bootstrap-theme.min.css') }}" rel="stylesheet">
+    <link href="{{ static_url('css/index/index.css') }}" rel="stylesheet">
     <title>试试手气</title>
 
 </head>
-
-
-<body>
+<body background="{{ static_url("img/index/bg.jpg")}}">
 <form id="wxcqForm" action="/wxcq" method="post">
     <div id="wxContener">
-        <img id="wxcq" style="padding:0px;width: 100%;height: 100%" src="{{ static_url('img/cq_01.jpg')}}">
+        <img id="yb" class="ybImg" src="{{ static_url("img/index/yb.png") }}"/>
+        <img id="qt" class="qtImg" src="{{ static_url("img/index/qt.png") }}"/>
+        <img id="by" class="bxImg" src="{{ static_url("img/index/bx.png") }}"/>
+        <img id="yb1" class="yb01Img" src="{{ static_url("img/index/yb01.png") }}"/>
+        <img id="yb2" class="yb02Img" src="{{ static_url("img/index/yb02.png") }}"/>
+        <img id="yb3" class="yb03Img" src="{{ static_url("img/index/yb03.png") }}"/>
     </div>
-    <div style="display: none">
-        <audio id="yyRing" src="{{ static_url('ring/shake_sound_male.mp3')}}" preload="preload"></audio>
-        <audio id="okRing" src="{{ static_url('ring/shake_match.mp3')}}" preload="preload"></audio>
 
-    </div>
 </form>
 </body>
 
@@ -34,26 +34,12 @@
 </html>
 
 <script>
-    //初始化图片
-    var imgInit = function () {
-        var width = $(window).width();
-        var height = $(window).height();
-        var stypeStr = "padding:0px;width:" + width + "px;height:" + height + "px";
-        $("#wxcq").attr("style", stypeStr);
-    };
-
     //初始化方法
     $(function () {
-        imgInit();
         if (window.DeviceMotionEvent) {
             window.addEventListener('devicemotion', deviceMotionHandler, false);
         } else {
-            alert('not support mobile event');
-        }
-        if (window.plus) {
-            plusReady();
-        } else {
-            document.addEventListener("plusready", plusReady, false);
+            alert("对不起，您的设备目前不支持此页面！");
         }
     });
 
