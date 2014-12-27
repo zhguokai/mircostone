@@ -6,7 +6,7 @@ from PIL import Image,ImageDraw,ImageFont
 from application.db.connect.postgresql_conn import PostDBConn
 from application.Logger import weixinLogger
 
-indexLog = weixinLogger()
+indexLog = weixinLogger.getInstance().logging
 
 
 class IndexHandler(RequestHandler):
