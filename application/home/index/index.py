@@ -26,9 +26,9 @@ class IndexHandler(RequestHandler):
             draw.text((200,100),u'你好,世界!',(23,55,99),font = font)
             draw.text((260,140),unicode('你好','utf-8'),(678,123,234),font = font)
             img.save("jpeg.png",'PNG')
-            indexLog.log("成功了")
+            indexLog.info("成功了")
         except Exception as e:
-            indexLog.log(e.message)
+            indexLog.info(e.message)
 
         self.render('home/yyy.html')
 
