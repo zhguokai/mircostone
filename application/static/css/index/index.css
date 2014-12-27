@@ -3,7 +3,7 @@ body {
     background-size: auto;
 }
 
-.bgImg {
+.wxcq_bgImg {
     margin: 0px;
     width: 100%;
     height: 100%;
@@ -11,53 +11,12 @@ body {
     z-index: 0;
 }
 
-.ybImg {
+.wxcq_cqImg {
+    display: none;
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 5;
-}
-
-.qtImg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 3;
-}
-
-.qtOverImg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 45;
-}
-
-.bxImg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 25;
-}
-
-.yb01Img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 30;
-}
-
-.yb02Img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 35;
-}
-
-.yb03Img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 40;
 }
 
 .resultImg {
@@ -67,7 +26,7 @@ body {
     position: absolute;
     z-index: 60;
 }
-.result_yqImg{
+.result_yqImg {
     display: none;
     width: 100%;
     height: 100%;

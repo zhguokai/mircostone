@@ -35,9 +35,7 @@ function deviceMotionHandler(eventData) {
         length += Math.abs(x + y + z - last_x - last_y - last_z) / 3;
         if (speed > 500) {
             //设置动态摇晃图
-            $("#qt").css("background", "url('/staticimg/index/qt2.png')");
-            $("#qt").css("z-index", 45);
-
+            $("#wxcq_cq").css("display", "block");
             //使晃动的速度与距离都达到要求时,抽出结果签来展示
             if (speed > SHAKE_THRESHOLD && length > 50) {
                 //重新设置Length
@@ -60,6 +58,7 @@ function deviceMotionHandler(eventData) {
  * 展示抽签结果
  * */
 var showResultImg = function () {
+     $("#wxcq_cq").css("display", "none");
     $("#result").css("display", "block");
     $("#result_yq").css("display", "block");
     //处理重新抽签的方式
