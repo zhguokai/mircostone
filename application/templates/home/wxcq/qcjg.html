@@ -31,7 +31,7 @@
         var height = $(window).height();
         var stypeStr = "padding:0px;width:" + width + "px;height:" + height + "px";
         $("#resImg").attr("style", stypeStr);
-        var imgUrl = "/wxcq?type=img&&userName={{ userName }}";
+        var imgUrl = "/wxcq/queryImg?type=img&&userName={{ userName }}";
         $("#resImg").attr("src", imgUrl)
     };
     //初始化方法
