@@ -15,7 +15,8 @@
 
 <body>
 <div id="wxContener">
-    <img id="wxcq" style="padding:0px;width: 100%;height: 100%" src="{{ static_url('img/cq_jq_01.jpg')}}">
+   <p><img src="/wxcq?type=img&&userName={{userName}}"/></p>
+    <p>{{ userName}}</p>
 </div>
 <div style="display: none">
      <audio id="okRing" src="{{ static_url('ring/shake_match.mp3')}}" preload="preload"></audio>

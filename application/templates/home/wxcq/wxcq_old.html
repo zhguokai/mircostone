@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -14,27 +14,15 @@
 
 </head>
 <body>
-<img id="wxcq_bg" class="wxcq_bgImg" src="{{ static_url("img/index/result.jpg") }}"/>
-<div class="container-fluid">
-    <form class="form-horizontal" style="margin-top:120px" action="/wxcq" method="post">
-        <div class="form-group">
-            <label for="inputName"
-                   class="form-control-static col-xs-2 col-sm-2 col-xs-offset-1 col-sm-offset-1 control-label"
-                   style="font-size: 15px;color: ivory">姓名:</label>
-            <div class="col-xs-9 col-sm-9">
-                <input type="text" class="form-control" style="width: 100%;" name="inputName" id="inputName"
-                       placeholder="请输入姓名">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-xs-offset-1 col-sm-offset-1  col-xs-11 col-sm-11">
-                <button type="submit" class="btn btn-success" style="width: 100%">Sign in</button>
-            </div>
-        </div>
-    </form>
-
-</div>
+<form id="wxcqForm" action="/wxcq" method="post">
+    <div id="wxContener">
+        <img id="wxcq_bg" class="wxcq_bgImg" src="{{ static_url("img/index/wxcq_bg.jpg") }}"/>
+        <img id="wxcq_cq" class="wxcq_cqImg" src="{{ static_url("img/index/wxcq_cq.gif") }}"/>
+        <img id="result" class="resultImg" src="{{ static_url("img/index/result.jpg")}}"/>
+        <img id="result_yq" class="result_yqImg" src="{{ static_url("img/index/result_yq.png")}}"/>
+    </div>
+<input type="hidden" id="cqjg_cur_time" name="cqjg_cur_time" value=""/>
+</form>
 </body>
 
 <!-- 放置页面末尾 加快页面加载速度-->
