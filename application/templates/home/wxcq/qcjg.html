@@ -13,13 +13,9 @@
 </head>
 
 
-<body>
+<body role="document">
 <div id="wxContener">
-   <p><img src="/wxcq?type=img&&userName={{userName}}"/></p>
-    <p>{{ userName}}</p>
-</div>
-<div style="display: none">
-     <audio id="okRing" src="{{ static_url('ring/shake_match.mp3')}}" preload="preload"></audio>
+    <img id="resImg"/>
 </div>
 </body>
 
@@ -34,12 +30,12 @@
         var width = $(window).width();
         var height = $(window).height();
         var stypeStr = "padding:0px;width:" + width + "px;height:" + height + "px";
-        $("#wxcq").attr("style", stypeStr);
+        $("#resImg").attr("style", stypeStr);
+        var imgUrl = "/wxcq?type=img&&userName={{ userName }}";
+        $("#resImg").attr("src", imgUrl)
     };
     //初始化方法
     $(function () {
         imgInit();
-        navigator.vibrate(1000);
-        //$("#okRing")[0].play();
     });
 </script>

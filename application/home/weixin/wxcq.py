@@ -35,7 +35,7 @@ class WxCq(RequestHandler):
                     size = img.size
                     print(size)
                     draw = ImageDraw.Draw(img)
-                    draw.text((200,20),userName,(123,55,99),font = font)
+                    draw.text((300,30),userName,(123,55,99),font = font)
                     # img.save("application/static/img/jpeg.png",'PNG')
                     # imgbytes = img.tobytes()
                     #返回到前台
