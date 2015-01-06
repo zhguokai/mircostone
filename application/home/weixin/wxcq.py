@@ -5,10 +5,10 @@
 
 from tornado.web import RequestHandler
 
-from application.Logger import weixinLogger
+from application.Logger import AppLogger
 
 
-wxLog = weixinLogger.getInstance().logging
+wxLog = AppLogger.get_loghandle(__name__)
 
 
 class WxCqHandler(RequestHandler):

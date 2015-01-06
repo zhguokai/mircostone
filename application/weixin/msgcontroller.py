@@ -5,12 +5,12 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-from application.Logger import weixinLogger
+from application.Logger import AppLogger
 from application.weixin.userinfo import UserInfo
 from application.weixin.WxConfig import WeiXinConfig
 
 # 定义日志工具
-log = weixinLogger.getInstance().logging
+log = AppLogger.get_loghandle(__name__)
 
 
 class MsgTextController:

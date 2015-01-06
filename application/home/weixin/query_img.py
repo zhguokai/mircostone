@@ -7,9 +7,9 @@ from StringIO import StringIO
 from tornado.web import RequestHandler
 from PIL import Image,ImageFont,ImageDraw
 
-from application.Logger import weixinLogger
+from application.Logger import AppLogger
 
-imglog = weixinLogger.getInstance().logging
+imglog = AppLogger.get_loghandle(__name__)
 
 
 class QueryImgHandler(RequestHandler):

@@ -9,13 +9,13 @@ import urllib
 import json
 #
 from application.weixin.WxConfig import WeiXinConfig
-from application.Logger import weixinLogger
+from application.Logger import AppLogger
 #
 """
 获取微信授权凭证
 """
 # 定义日志属性类
-acLog = weixinLogger.getInstance().logging
+acLog = AppLogger.get_loghandle(__name__)
 
 
 class AccessToken:

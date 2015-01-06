@@ -11,10 +11,10 @@ sys.setdefaultencoding('utf-8')
 # 引入凭证获取工具
 from application.weixin.AccessToken import AccessToken
 from application.weixin.WxConfig import WeiXinConfig
-from application.Logger import weixinLogger
+from application.Logger import AppLogger
 
 # 定义日志
-log = weixinLogger.getInstance().logging
+log = AppLogger.get_loghandle(__name__)
 
 
 class UserInfo:

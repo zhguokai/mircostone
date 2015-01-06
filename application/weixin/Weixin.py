@@ -10,7 +10,7 @@ import xml.etree.ElementTree as Etr
 
 from tornado.web import RequestHandler
 # 引入自定义包
-from application.Logger import weixinLogger
+from application.Logger import AppLogger
 from application.weixin.msgcontroller import MsgTextController
 from application.weixin.msgcontroller import MsgImgController
 from application.weixin.msgcontroller import MsgVoiceController
@@ -21,7 +21,7 @@ from application.weixin.msgcontroller import MsgEventController
 
 
 # 定义日志工具
-log = weixinLogger.getInstance().logging
+acelog = AppLogger.get_loghandle(__name__)
 
 
 class AccessWeixinHandler(RequestHandler):
@@ -30,7 +30,16 @@ class AccessWeixinHandler(RequestHandler):
     """
 
 
+    def data_received(self,chunk):
+        """
+        暂不做操作
+        :param chunk:
+        :return:
+        """
+
+
     def get(self):
+        acelog.info(u"接收微信请求认证")
         signature = self.get_argument("signature")
         timestamp = self.get_argument("timestamp")
         nonce = self.get_argument("nonce")
@@ -47,8 +56,10 @@ class AccessWeixinHandler(RequestHandler):
         
         if hashcode == signature:
             self.write(echostr)
+            acelog.info(u"微信认证成功")
         else:
             self.write('False')
+            acelog.info(u"微信认证失败")
     
 
     def post(self):
@@ -59,14 +70,14 @@ class AccessWeixinHandler(RequestHandler):
 
         # 消息体
         msgxml = self.request.body.decode(encoding = 'utf-8')
-        log.info("接收消息体： %s" % msgxml)
+        acelog.info("接收消息体： %s" % msgxml)
         # 转换为XMLData
         msg_data = Etr.fromstring(msgxml)
 
         # 处理消息数据
         try:
             msgtype = msg_data.find('MsgType').text
-            log.info("消息类型：%s" % msgtype)
+            acelog.info("消息类型：%s" % msgtype)
             if msgtype == "text":
                 # 调用文本消息处理
                 msgcontrol = MsgTextController()
@@ -97,12 +108,12 @@ class AccessWeixinHandler(RequestHandler):
                 msgcontrol.reciveLinkMsg(self,msg_data)
                 pass
             elif msgtype == "event":
-                log.info("事件类型处理")
+                acelog.info("事件类型处理")
                 # 处理事件
                 msgcontrol = MsgEventController()
                 msgcontrol.recive_event_msg(self,msg_data)
         except BaseException as e:
-            log.error("出现异常：%s" % e)
+            acelog.error("出现异常：%s" % e)
 
 
 __author__ = 'zhgk'
