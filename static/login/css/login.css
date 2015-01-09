@@ -1,0 +1,60 @@
+body {
+    align-items: center;
+}
+
+.background {
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-size: contain;
+}
+
+.fromconter {
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 98%;
+    height: auto;
+    z-index: 15;
+}
+
+.login_box_contener {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    float: right;
+    z-index: 14;
+}
+
+.login_box {
+    float: right;
+    margin-top: 18%;
+    margin-right: 10%;
+    height: 25%;
+    border: 2px dashed mediumseagreen;
+
+    border-radius: 15px;
+    z-index: 17;
+
+}
+
+.btn_login {
+    margin-left: 1px;
+    width: 23%;
+}
+
+.btn_rest {
+    position: static;
+    margin-left: 10px;
+    margin-right: 1px;
+    width: 23%;
+}
+
+.errmsg {
+    font-size-adjust: inherit;
+    color: red;
+    font-size: large;
+}
