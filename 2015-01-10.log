@@ -1,0 +1,45 @@
+2015-01-10 01:06:58,314  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:06:58,314  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = ? AND user_pass=?;
+        
+2015-01-10 01:06:58,317  - INFO - 获取数据库连接
+2015-01-10 01:10:08,057  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:10:10,598  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = ? AND user_pass=?;
+        
+2015-01-10 01:10:12,962  - INFO - 获取数据库连接
+2015-01-10 01:13:07,466  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:13:07,467  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = ? AND user_pass=?;
+        
+2015-01-10 01:13:07,470  - INFO - 获取数据库连接
+2015-01-10 01:13:59,535  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:13:59,535  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = ? AND user_pass=?;
+        
+2015-01-10 01:13:59,538  - INFO - 获取数据库连接
+2015-01-10 01:15:36,096  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:15:36,097  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = %s AND user_pass= %s;
+        
+2015-01-10 01:15:36,099  - INFO - 获取数据库连接
+2015-01-10 01:15:47,608  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:15:51,733  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = %s AND user_pass= %s;
+        
+2015-01-10 01:15:54,813  - INFO - 获取数据库连接
+2015-01-10 01:17:09,423  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:17:11,261  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = %s;
+        
+2015-01-10 01:17:12,361  - INFO - 获取数据库连接
+2015-01-10 01:22:34,592  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:22:38,124  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = %s;
+        
+2015-01-10 01:22:39,641  - INFO - 获取数据库连接
+2015-01-10 01:23:13,589  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:23:15,247  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = %s;
+        
+2015-01-10 01:23:17,057  - INFO - 获取数据库连接

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--引入核心样式与皮肤包 -->
+    <link href="{{ static_url('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="{{ static_url('bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
+    <link href="{{ static_url('login/css/login.css') }}" rel="stylesheet">
+
+    <title>微石营销</title>
+
+</head>
+
+
+<body role="document">
+<div>
+    <img class="background" src="{{ static_url('login/img/bg.jpg')}}"/>
+
+    <form id="loginform" class="form-horizontal fromconter" action="/" method="post">
+        <div class="form-group">
+            <label class="col-sm-offset-8 col-sm-4 errmsg">用户名错误</label>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-offset-6 col-sm-2 control-label">用户名：</label>
+
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="username" placeholder="输入用户名" required autofocus/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="userPassword" class="col-sm-2 col-sm-offset-6 control-label">密&nbsp;&nbsp;&nbsp;码：</label>
+
+            <div class="col-sm-2">
+                <input type="password" class="form-control" id="userPassword" placeholder="输入密码" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-8 col-sm-4">
+                <button type="submit" class="btn btn-primary btn-lg btn_login">登 录</button>
+                <button type="reset" class="btn btn-primary btn-lg btn_rest">重 置</button>
+            </div>
+
+        </div>
+    </form>
+    <div class="login_box_contener">
+        <div class="login_box col-sm-offset-6 col-sm-4" style="z-index: 17"></div>
+    </div>
+</div>
+
+</body>
+
+<!-- 放置页面末尾 加快页面加载速度-->
+<script src="{{ static_url('bootstrap/js/jquery-2.1.1.min.js')}}"></script>
+<script src="{{ static_url('bootstrap/js/bootstrap.min.js')}}"></script>
+</html>
+
+<script>
+    $(function () {
+
+    });
+</script>

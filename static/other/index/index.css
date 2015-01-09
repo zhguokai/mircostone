@@ -1,0 +1,40 @@
+
+body {
+    background-size: auto;
+}
+
+.wxcq_bgImg {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.wxcq_cqImg {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+}
+
+.resultImg {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 60;
+}
+
+.result_yqImg {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 65;
+}
+
+.inputForm {
+    margin-top: 60px;
+}
