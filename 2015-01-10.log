@@ -81,3 +81,135 @@
 2015-01-10 09:37:54,193  - INFO - __main__ 获取日志句柄
 2015-01-10 09:37:54,193  - INFO - 启动系统应用开始
 2015-01-10 09:37:54,205  - INFO - 应用启动，临听端口: 8083
+2015-01-10 10:44:59,925  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 10:44:59,929  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 10:44:59,947  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 10:44:59,948  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 10:44:59,948  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 10:44:59,949  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 10:44:59,969  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 10:44:59,973  - INFO - app.Application 获取日志句柄
+2015-01-10 10:44:59,974  - INFO - __main__ 获取日志句柄
+2015-01-10 10:44:59,974  - INFO - 启动系统应用开始
+2015-01-10 10:44:59,986  - INFO - 应用启动，临听端口: 8083
+2015-01-10 10:49:04,865  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 10:49:04,868  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 10:49:04,886  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 10:49:04,887  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 10:49:04,888  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 10:49:04,889  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 10:49:04,910  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 10:49:04,913  - INFO - app.Application 获取日志句柄
+2015-01-10 10:49:04,913  - INFO - __main__ 获取日志句柄
+2015-01-10 10:49:04,914  - INFO - 启动系统应用开始
+2015-01-10 10:49:04,926  - INFO - 应用启动，临听端口: 8083
+2015-01-10 10:51:44,153  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 10:51:44,156  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 10:51:44,174  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 10:51:44,175  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 10:51:44,176  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 10:51:44,177  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 10:51:44,198  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 10:51:44,202  - INFO - app.Application 获取日志句柄
+2015-01-10 10:51:44,203  - INFO - __main__ 获取日志句柄
+2015-01-10 10:51:44,203  - INFO - 启动系统应用开始
+2015-01-10 10:51:44,215  - INFO - 应用启动，临听端口: 8083
+2015-01-10 10:52:41,455  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 10:52:41,458  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 10:52:41,475  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 10:52:41,476  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 10:52:41,477  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 10:52:41,478  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 10:52:41,498  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 10:52:41,501  - INFO - app.Application 获取日志句柄
+2015-01-10 10:52:41,502  - INFO - __main__ 获取日志句柄
+2015-01-10 10:52:41,502  - INFO - 启动系统应用开始
+2015-01-10 10:52:41,514  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:29:21,585  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:29:21,585  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:29:21,589  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:29:21,589  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:29:21,590  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:29:21,590  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:29:21,595  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:29:21,595  - INFO - app.Application 获取日志句柄
+2015-01-10 11:29:21,596  - INFO - __main__ 获取日志句柄
+2015-01-10 11:29:21,596  - INFO - 启动系统应用开始
+2015-01-10 11:29:21,599  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:29:25,880  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:29:25,881  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:29:25,885  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:29:25,885  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:29:25,886  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:29:25,886  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:29:25,892  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:29:25,892  - INFO - app.Application 获取日志句柄
+2015-01-10 11:29:25,892  - INFO - __main__ 获取日志句柄
+2015-01-10 11:29:25,892  - INFO - 启动系统应用开始
+2015-01-10 11:29:25,895  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:29:33,560  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:29:33,563  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:29:33,581  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:29:33,582  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:29:33,582  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:29:33,583  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:29:33,603  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:29:33,606  - INFO - app.Application 获取日志句柄
+2015-01-10 11:29:33,607  - INFO - __main__ 获取日志句柄
+2015-01-10 11:29:33,608  - INFO - 启动系统应用开始
+2015-01-10 11:29:33,620  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:29:54,145  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:29:54,148  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:29:54,167  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:29:54,167  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:29:54,168  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:29:54,169  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:29:54,190  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:29:54,193  - INFO - app.Application 获取日志句柄
+2015-01-10 11:29:54,194  - INFO - __main__ 获取日志句柄
+2015-01-10 11:29:54,194  - INFO - 启动系统应用开始
+2015-01-10 11:29:54,206  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:30:05,902  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:30:05,906  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:30:05,925  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:30:05,925  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:30:05,926  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:30:05,927  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:30:05,949  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:30:05,952  - INFO - app.Application 获取日志句柄
+2015-01-10 11:30:05,953  - INFO - __main__ 获取日志句柄
+2015-01-10 11:30:05,954  - INFO - 启动系统应用开始
+2015-01-10 11:30:05,966  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:32:31,052  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:32:31,056  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:32:31,074  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:32:31,076  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:32:31,076  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:32:31,077  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:32:31,099  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:32:31,103  - INFO - app.Application 获取日志句柄
+2015-01-10 11:32:31,103  - INFO - __main__ 获取日志句柄
+2015-01-10 11:32:31,104  - INFO - 启动系统应用开始
+2015-01-10 11:32:31,118  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:37:12,968  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:37:12,968  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:37:12,973  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:37:12,973  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:37:12,973  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:37:12,973  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:37:12,979  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:37:12,979  - INFO - app.Application 获取日志句柄
+2015-01-10 11:37:12,979  - INFO - __main__ 获取日志句柄
+2015-01-10 11:37:12,979  - INFO - 启动系统应用开始
+2015-01-10 11:37:12,982  - INFO - 应用启动，临听端口: 8083
+2015-01-10 11:38:13,146  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 11:38:13,146  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 11:38:13,150  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 11:38:13,150  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 11:38:13,151  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 11:38:13,151  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 11:38:13,157  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 11:38:13,157  - INFO - app.Application 获取日志句柄
+2015-01-10 11:38:13,157  - INFO - __main__ 获取日志句柄
+2015-01-10 11:38:13,157  - INFO - 启动系统应用开始
+2015-01-10 11:38:13,160  - INFO - 应用启动，临听端口: 8083
