@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from tornado.options import options
+from tornado import options
 from tornado.ioloop import IOLoop
 
 from app.Application import MainApplication
 from common.log.Logger import AppLogger
+
 
 
 # 定义日志工具
