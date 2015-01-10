@@ -17,6 +17,7 @@ from templates import templates_path
 from common.log.Logger import AppLogger
 # 定义日志
 applog = AppLogger.get_loghandle(__name__)
+options.define("port", default=8083, help="Run server on a specific port", type=int)
 
 
 class MainApplication():
@@ -30,14 +31,13 @@ class MainApplication():
         :return:
         """
 
-
     @staticmethod
     def create_application():
         """
         静态方法启动应用实例
         :return:
         """
-        options.define("port", default=8083, help="Run server on a specific port", type=int)
+
         handler = [
             (r"/", LoginHandler),
             (r"/AccessWeixin", AccessWeixinHandler),

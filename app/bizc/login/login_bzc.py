@@ -15,7 +15,7 @@ class LoginBiz(object):
         :return:
         """
 
-    def validate_user(self, username, userpass):
+    def validate_user(self, params):
         """
         验证有户信息
         :param username:

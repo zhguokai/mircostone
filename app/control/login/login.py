@@ -2,8 +2,11 @@
 
 from tornado.web import RequestHandler
 
+from app.view.view_path import HTML_PATH
+
 from common.log.Logger import AppLogger
 from common.util.encode import EncodePass
+
 
 loginLog = AppLogger.get_loghandle(__name__)
 
@@ -22,7 +25,7 @@ class LoginHandler(RequestHandler):
         :return:
         """
 
-        self.render('app/login/login.html')
+        self.render(HTML_PATH.get("Login.login"))
 
     def post(self):
         """
@@ -34,6 +37,9 @@ class LoginHandler(RequestHandler):
 
         if username is not None and userpass is not None:
             userpass = EncodePass.encode_sha512(userpass)
+        else:
+            #
+            self.render(HTML_PATH.get("Login.login"))
 
 
 __author__ = 'zhgk'
