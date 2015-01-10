@@ -24,7 +24,6 @@ class MainApplication():
         应用程序启动入口
     """
 
-
     def __init__(self):
         """
         初始化方法,
@@ -44,7 +43,6 @@ class MainApplication():
             (r"/AccessWeixin", AccessWeixinHandler),
             (r"/wxcq", WxCqHandler),
             (r"/wxcq/queryImg", QueryImgHandler)
-
         ]
         settings = {
             "static_path": static_path,
