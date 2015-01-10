@@ -43,3 +43,41 @@
             SELECT * FROM b_wx_users WHERE user_code = %s;
         
 2015-01-10 01:23:17,057  - INFO - 获取数据库连接
+2015-01-10 01:42:44,723  - INFO - testAndDemo.tecdemo.db.mysql_conn 获取初始日志句柄
+2015-01-10 01:42:49,501  - INFO - 执行SQL: 
+            SELECT * FROM b_wx_users WHERE user_code = %s;
+        
+2015-01-10 01:42:51,355  - INFO - 获取数据库连接
+2015-01-10 01:43:06,312  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 01:43:06,316  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 01:43:06,336  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 01:43:06,337  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 01:43:06,338  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 01:43:06,339  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 01:43:06,360  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 01:43:06,364  - INFO - app.Application 获取日志句柄
+2015-01-10 01:43:06,364  - INFO - __main__ 获取日志句柄
+2015-01-10 01:43:06,365  - INFO - 启动系统应用开始
+2015-01-10 01:43:06,377  - INFO - 应用启动，临听端口: 8083
+2015-01-10 02:16:51,198  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 02:16:51,201  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 02:16:51,221  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 02:16:51,221  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 02:16:51,222  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 02:16:51,223  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 02:16:51,244  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 02:16:51,247  - INFO - app.Application 获取日志句柄
+2015-01-10 02:16:51,248  - INFO - __main__ 获取日志句柄
+2015-01-10 02:16:51,248  - INFO - 启动系统应用开始
+2015-01-10 02:16:51,261  - INFO - 应用启动，临听端口: 8083
+2015-01-10 09:37:54,146  - INFO - app.control.login.login 获取初始日志句柄
+2015-01-10 09:37:54,149  - INFO - app.control.weixin.wxcq 获取日志句柄
+2015-01-10 09:37:54,167  - INFO - app.weixin.AccessToken 获取日志句柄
+2015-01-10 09:37:54,168  - INFO - app.weixin.userinfo 获取日志句柄
+2015-01-10 09:37:54,169  - INFO - app.weixin.msgcontroller 获取日志句柄
+2015-01-10 09:37:54,170  - INFO - app.weixin.Weixin 获取日志句柄
+2015-01-10 09:37:54,189  - INFO - app.control.weixin.query_img 获取日志句柄
+2015-01-10 09:37:54,192  - INFO - app.Application 获取日志句柄
+2015-01-10 09:37:54,193  - INFO - __main__ 获取日志句柄
+2015-01-10 09:37:54,193  - INFO - 启动系统应用开始
+2015-01-10 09:37:54,205  - INFO - 应用启动，临听端口: 8083

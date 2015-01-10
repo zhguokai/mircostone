@@ -2,7 +2,7 @@
 """
 密码加密算法，使用SHA512盐值加密
 """
-from Crypto.Hash import SHA512
+from hashlib import sha512
 
 
 class EncodePass(object):
@@ -23,9 +23,9 @@ class EncodePass(object):
         :param source_str:要加密的字符串
         :return target_str:加密后的字符串
         """
-        sha512 = SHA512.new()
-        sha512.update(source_str)
-        target_str = sha512.hexdigest()
+        sha = sha512()
+        sha.update(source_str.encode(encoding='utf8'))
+        target_str = sha.hexdigest()
         return target_str
 
 
