@@ -3,7 +3,8 @@
 mysql数据库连接类
 用于测试数据连接
 """
-from mysql.connector import connect
+from pymysql import connect
+from pymysql import OperationalError
 
 from common.log.Logger import AppLogger
 from common.db.dbconfig import MysqlConfig
@@ -47,12 +48,22 @@ class MySqlDBConn(object):
         return con
 
     @staticmethod
-    def execute_query_sql(query_sql):
+    def execute_query_sql(query_sql_str, query_params):
         """
         执行查询方法
         :param sqlstr:
         :return:
         """
+        try:
+            dblog.info(u"执行SQL: %s" % query_sql_str)
+            conn = MySqlDBConn.get_exechandle()
+            up_cursor = conn.cursor()
+            up_cursor.execute(query_sql_str, query_params)
+            query_result = up_cursor._result
+            return query_result
+        except OperationalError as e:
+            dblog.error("查询数据库异常：%s" % e.args)
+            return None
 
     @staticmethod
     def execute_update_sql(update_sql):

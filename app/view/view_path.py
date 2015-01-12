@@ -7,6 +7,6 @@
 HTML_PATH = {
     # 登录模块页面
     "Login.login": "app/login/login.html",
-    "Main.main": "app/login/.html",
+    "Main.main": "app/main/main.html",
 }
 __author__ = 'zhgk'
