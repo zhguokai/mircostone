@@ -1,68 +1,100 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--引入核心样式与皮肤包 -->
-    <link href="{{ static_url('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="{{ static_url('bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
-    <link href="{{ static_url('login/css/login.css') }}" rel="stylesheet">
+{% extends "../../base/base.html" %}
 
-    <title>微石营销</title>
+{% block title %}MicroStone 微石 {% end %}
+<!--引入自定义样式-->
+{% block pageCSS %}
+<link href="{{ static_url('assets/global/plugins/select2/select2.css')}}" rel="stylesheet" type="text/css"/>
+<link href="{{ static_url('assets/admin/pages/css/login3.css')}}" rel="stylesheet" type="text/css"/>
+<!-- END PAGE LEVEL SCRIPTS -->
+{% end %}
 
-</head>
+<!--引入自定义样式-->
+<!-- HTML BODY-->
+{% block bodyhtml %}
+<body class="login">
+<!-- BEGIN LOGO -->
+<div class="logo">
+</div>
+<!-- END LOGO -->
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 
+<!-- END SIDEBAR TOGGLER BUTTON -->
+<!-- BEGIN LOGIN -->
+<div class="content">
+    <!-- BEGIN LOGIN FORM -->
+    <form class="login-form" action="/" method="post" novalidate="novalidate">
+        <h3 class="form-title">登录MicroStone</h3>
 
-<body role="document">
-<div>
-    <img class="background" src="{{ static_url('login/img/bg.jpg')}}"/>
-
-    <form id="loginform" class="form-horizontal fromconter" action="/" method="post">
-        <div class="form-group">
-            <label class="col-sm-offset-8 col-sm-4 errmsg">用户名错误</label>
+        <div class="alert alert-danger display-hide">
+            <button class="close" data-close="alert"></button>
+            <span>
+                {% if errmsg is None %}
+                    请输入用户名或密码.
+                {% else %}
+                    用户名或密码不正确
+                {% end %}
+             </span>
         </div>
         <div class="form-group">
-            <label for="username" class="col-sm-offset-6 col-sm-2 control-label">用户名：</label>
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label visible-ie8 visible-ie9">用户名：</label>
 
-            <div class="col-sm-2">
-                <input name="username" type="text" class="form-control" id="username" placeholder="输入用户名" required
-                       autofocus/>
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名"
+                       name="username"/>
             </div>
         </div>
         <div class="form-group">
-            <label for="userPassword" class="col-sm-2 col-sm-offset-6 control-label">密&nbsp;&nbsp;&nbsp;码：</label>
+            <label class="control-label visible-ie8 visible-ie9">密码：</label>
 
-            <div class="col-sm-2">
-                <input type="password" name="userpass" class="form-control" id="userPassword" placeholder="输入密码"
-                       required/>
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码"
+                       name="password"/>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-8 col-sm-4">
-                <button type="submit" class="btn btn-primary btn-lg btn_login">登 录</button>
-                <button type="reset" class="btn btn-primary btn-lg btn_rest">重 置</button>
-            </div>
-
+        <div class="form-actions">
+            <label class="checkbox">
+                <input type="checkbox" name="remember" value="1"/> 记住账号 </label>
+            <button type="submit" class="btn green-haze pull-right">
+                登录 <i class="m-icon-swapright m-icon-white"></i>
+            </button>
         </div>
     </form>
-    <div class="login_box_contener">
-        <div class="login_box col-sm-offset-6 col-sm-4" style="z-index: 17"></div>
-    </div>
+    <!-- END LOGIN FORM -->
+    <!-- BEGIN FORGOT PASSWORD FORM -->
 </div>
+{% end %}
+<!-- HTML BODY-->
+<!-- 引入自定义JS -->
+{% block pageJS %}
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="{{static_url('assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}"
+        type="text/javascript"></script>
+<script type="text/javascript" src="{{static_url('assets/global/plugins/select2/select2.min.js')}}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{{static_url('assets/global/scripts/metronic.js')}}" type="text/javascript"></script>
+<script src="{{static_url('assets/admin/layout/scripts/layout.js')}}" type="text/javascript"></script>
+<script src="{{static_url('assets/admin/layout/scripts/demo.js')}}" type="text/javascript"></script>
+<script src="{{static_url('assets/admin/pages/scripts/login.js')}}" type="text/javascript"></script>
+{% end %}
+<!-- 引入自定义JS -->
+<!-- 引入初始化JS -->
+{% block initJs %}
+Login.init();
+Demo.init();
+{% if errmsg is not None%}
+$('.alert-danger', $('.login-form')).show();
+{% end %}
+{%end%}
+<!-- 引入初始化JS -->
+<!-- 引入自定义JS函数 -->
+{% block bodyJs %}
+;
+{% end %}
+<!-- 引入自定义JS函数 -->
 
-</body>
 
-<!-- 放置页面末尾 加快页面加载速度-->
-<script src="{{ static_url('bootstrap/js/jquery-2.1.1.min.js')}}"></script>
-<script src="{{ static_url('bootstrap/js/bootstrap.min.js')}}"></script>
-</html>
-
-<script>
-    $(function () {
-
-    });
-</script>
