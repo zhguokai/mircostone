@@ -44,7 +44,7 @@ class MySqlDBConn(object):
             con = connect(**self.__setttings)
             dblog.info(u"获取数据库连接")
         except BaseException as e:
-            dblog.err(u"数据库连接获取失败:%s" % e.message)
+            dblog.error(u"数据库连接获取失败:%s" % e.message)
         return con
 
     @staticmethod
