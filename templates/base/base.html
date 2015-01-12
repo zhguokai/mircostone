@@ -82,13 +82,13 @@
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components
         Layout.init(); // init current layout
-        {%   block; initJs %}{% end %}
+        {%   block initJs %}{% end %}
     });
 
 </script>
 <!-- END JAVASCRIPTS -->
 <script>
-    {% block;  bodyJs %}{%  end %}
+    {% block  bodyJs %}{%  end %}
 </script>
 </body>
 
