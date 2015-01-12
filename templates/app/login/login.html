@@ -86,14 +86,14 @@
 {% block initJs %}
 Login.init();
 Demo.init();
-{% if errmsg is not None%}
-$('.alert-danger', $('.login-form')).show();
+    {% if errmsg is not None%}
+        $('.alert-danger', $('.login-form')).show();
+    {% end %}
 {% end %}
-{%end%}
 <!-- 引入初始化JS -->
 <!-- 引入自定义JS函数 -->
 {% block bodyJs %}
-;
+
 {% end %}
 <!-- 引入自定义JS函数 -->
 
