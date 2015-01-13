@@ -20,7 +20,7 @@ class WxCqHandler(RequestHandler):
     def get(self):
         # 接收参数,参数个数为0的时候，直接返回页面,后期写一个单独的图片请求类
         args = self.request.arguments
-        self.render('control/wxcq/wxcq.html')
+        self.render('app/wxcq/wxcq.html')
 
 
     def post(self):

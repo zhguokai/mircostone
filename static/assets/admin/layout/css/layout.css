@@ -80,6 +80,11 @@ Page Header
     height: 46px;
     padding-left: 20px;
     padding-right: 20px;
+    /*新增的样式*/
+    vertical-align: middle;
+    font-size:x-large;
+    color: white;
+    line-height:46px;
 }
 
 .page-sidebar-closed.page-sidebar-closed-hide-logo .page-header.navbar .page-logo {
