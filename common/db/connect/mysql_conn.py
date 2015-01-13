@@ -4,7 +4,6 @@ mysql数据库连接类
 用于测试数据连接
 """
 from pymysql import connect
-from pymysql import OperationalError
 
 from common.log.Logger import AppLogger
 from common.db.dbconfig import MysqlConfig
@@ -44,7 +43,7 @@ class MySqlDBConn(object):
             con = connect(**self.__setttings)
             dblog.info(u"获取数据库连接")
         except BaseException as e:
-            dblog.error(u"数据库连接获取失败:%s" % e.message)
+            dblog.error(u"数据库连接获取失败:错误码： %s 错误消息：%s " % e.args)
         return con
 
     @staticmethod
@@ -61,8 +60,8 @@ class MySqlDBConn(object):
             up_cursor.execute(query_sql_str, query_params)
             query_result = up_cursor._result
             return query_result
-        except OperationalError as e:
-            dblog.error("查询数据库异常：%s" % e.args)
+        except BaseException as e:
+            dblog.error(u"查询数据库异常： %s" % e.args[0])
             return None
 
     @staticmethod
@@ -82,7 +81,7 @@ class MySqlDBConn(object):
             up_cursor.close()
             return True
         except BaseException as e:
-            dblog.error(u"操作数据库异常：%s" % e.msg)
+            dblog.error(u"操作数据库异常： %s" % e.args[0])
             return False
 
     @staticmethod
