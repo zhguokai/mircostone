@@ -1,37 +1,27 @@
+<!-- 继承模板页面 -->
 {% extends "../../base/main_base.html" %}
-
+<!-- 设置标题-->
 {% block title %}MicroStone 微石 {% end %}
 <!--引入自定义样式-->
-{% block pageCss %}{% end %}
-<!--引入自定义样式-->
-<!-- HTML BODY-->
+{% block pageCss %}
+<link href="{{static_url('common/css/iframe.css')}}" rel="stylesheet" type="text/css"/>
+{% end %}
+<!-- 首页 BODY HTML -->
 {% block bodyhtml %}
 <body class="page-header-fixed page-quick-sidebar-over-content page-style-square">
-<!-- BEGIN HEADER -->
+<!-- 导航头 -->
 <div class="page-header navbar navbar-fixed-top">
-    <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner">
-        <!-- BEGIN LOGO -->
+        <!-- 设置图标 -->
         <div class="page-logo">
             <div>
-
                 <p>MicroStone</p>
             </div>
-            <div class="menu-toggler sidebar-toggler hide">
-                <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-            </div>
         </div>
-        <!-- END LOGO -->
-        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
-           data-target=".navbar-collapse">
-        </a>
-        <!-- END RESPONSIVE MENU TOGGLER -->
-        <!-- BEGIN TOP NAVIGATION MENU -->
+        <!-- 顶层目录 -->
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
-                <!-- BEGIN NOTIFICATION DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <!-- 我的消息 -->
                 <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
@@ -41,12 +31,10 @@
                     </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- 存放消息数量-->
+                        <!-- 存放消息内容-->
                     </ul>
                 </li>
-                <!-- END NOTIFICATION DROPDOWN -->
-                <!-- BEGIN INBOX DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <!-- 我的信箱 -->
                 <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
@@ -58,9 +46,7 @@
                         <!-- 存放消息数量-->
                     </ul>
                 </li>
-                <!-- END INBOX DROPDOWN -->
-                <!-- BEGIN TODO DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <!-- 我的任务 -->
                 <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
@@ -69,16 +55,15 @@
                     0 </span>
                     </a>
                     <ul class="dropdown-menu extended tasks">
-
+                        <!-- 我的任务 -->
                     </ul>
                 </li>
-                <!-- END TODO DROPDOWN -->
-                <!-- BEGIN USER LOGIN DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <!-- 用户信息 -->
                 <li class="dropdown dropdown-user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
-                        <img alt="" class="img-circle" src="{{static_url('assets/admin/layout/img/avatar3_small.jpg')}}"/>
+                        <img alt="" class="img-circle"
+                             src="{{static_url('assets/admin/layout/img/avatar3_small.jpg')}}"/>
                     <span class="username username-hide-on-mobile">
                     Nick </span>
                         <i class="fa fa-angle-down"></i>
@@ -111,65 +96,46 @@
                                 <i class="icon-lock"></i> 锁屏 </a>
                         </li>
                         <li>
-                            <a href="login.html">
+                            <a href="#">
                                 <i class="icon-key"></i> 退出 </a>
                         </li>
                     </ul>
                 </li>
-                <!-- END USER LOGIN DROPDOWN -->
-                <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <!-- END QUICK SIDEBAR TOGGLER -->
             </ul>
         </div>
-        <!-- END TOP NAVIGATION MENU -->
     </div>
-    <!-- END HEADER INNER -->
 </div>
-<!-- END HEADER -->
-<div class="clearfix">
-</div>
-<!-- BEGIN CONTAINER -->
+<!-- 头部导航结束 -->
+<!-- 页面内容 -->
 <div class="page-container">
-    <!-- BEGIN SIDEBAR -->
+    <!-- 左边菜单 -->
     <div class="page-sidebar-wrapper">
         <div class="page-sidebar navbar-collapse collapse">
-            <!-- BEGIN SIDEBAR MENU -->
-            <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-            <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-            <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-            <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-            <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <!-- 定义左边菜单属性 -->
             <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                <!-- 隐藏左边栏 -->
                 <li class="sidebar-toggler-wrapper">
-                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                     <div class="sidebar-toggler">
                     </div>
-                    <!-- END SIDEBAR TOGGLER BUTTON -->
                 </li>
-                <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                <!-- 查找框 -->
                 <li class="sidebar-search-wrapper">
-                    <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-                    <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
-                    <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
-                    <form class="sidebar-search "
-                          action=""
+                    <!-- 定义查询Form，后期做为菜单查义 -->
+                    <form class="sidebar-search"
                           method="POST">
                         <a href="javascript:;" class="remove">
                             <i class="icon-close"></i>
                         </a>
 
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="查找">
+                            <input name="searchMenu" type="text" class="form-control" placeholder="查找">
                             <span class="input-group-btn">
                             <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
                             </span>
                         </div>
                     </form>
-                    <!-- END RESPONSIVE QUICK SEARCH FORM -->
                 </li>
+                <!-- 左边菜单开始 -->
                 <li class="start active open">
                     <a href="javascript:;">
                         <i class="icon-home"></i>
@@ -179,17 +145,17 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="active">
-                            <a href="index-2.html">
+                            <a href="#">
                                 <i class="icon-bar-chart"></i>
                                 信息配置</a>
                         </li>
                         <li>
-                            <a href="index_2.html">
+                            <a href="#">
                                 <i class="icon-bulb"></i>
                                 自动响应消息</a>
                         </li>
                         <li>
-                            <a href="index_3.html">
+                            <a href="#">
                                 <i class="icon-graph"></i>
                                 发送用户消息</a>
                         </li>
@@ -203,80 +169,88 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="ecommerce_index.html">
+                            <a href="#">
                                 <i class="icon-home"></i>
                                 消息1</a>
                         </li>
                         <li>
-                            <a href="ecommerce_orders.html">
+                            <a href="#">
                                 <i class="icon-basket"></i>
                                 消息2</a>
                         </li>
                         <li>
-                            <a href="ecommerce_orders_view.html">
+                            <a href="#">
                                 <i class="icon-tag"></i>
                                 消息3</a>
                         </li>
                         <li>
-                            <a href="ecommerce_products.html">
+                            <a href="#">
                                 <i class="icon-handbag"></i>
                                 消息4</a>
                         </li>
                         <li>
-                            <a href="ecommerce_products_edit.html">
+                            <a href="#">
                                 <i class="icon-pencil"></i>
                                 消息5</a>
                         </li>
                     </ul>
                 </li>
-
-
                 <!-- END SIDEBAR MENU -->
             </ul>
         </div>
-        <!-- END SIDEBAR -->
-        <!-- BEGIN CONTENT -->
+        <!-- 主页面 -->
         <div class="page-content-wrapper">
-            <div class="page-content">
-                <iframe style="width: 100%;height: 600px;border: 0px;scrollbar:false;" src="http://localhost:8083/wxcq"></iframe>
+            <div id="iframeContent" class="page-content">
+                <iframe id="iframePage" style="display: none" src="/wxcq"></iframe>
             </div>
         </div>
-        <!-- END CONTENT -->
-        <!-- BEGIN QUICK SIDEBAR -->
-
     </div>
-    <!-- END QUICK SIDEBAR -->
 </div>
-<!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
+<!-- 底部标识 -->
 <div class="page-footer">
     <div class="page-footer-inner">
         2015 &copy; MircoStone By zhgk.
     </div>
+    <!--返回头部 -->
     <div class="scroll-to-top">
         <i class="icon-arrow-up"></i>
     </div>
 </div>
-
 {% end %}
-<!-- HTML BODY-->
-<!-- 引入自定义JS -->
+
+<!-- 引入核心控件 -->
 {% block corePlugin %}{% end %}
-<!-- 引入自定义JS -->
-<!-- 引入初始化JS -->
+<!-- 页面插件 -->
 {% block pagePlugin %}{% end %}
-<!-- 引入初始化JS -->
-{% block pageJs %}{% end %}
-<!-- END PAGE LEVEL SCRIPTS -->
+<!-- 页面JS -->
+{% block pageJs %}
+{% end %}
+<!-- 页面JS -->
 {% block bodyJs %}
 <script>
-    jQuery(document).ready(function () {
-        Metronic.init(); // init metronic core componets
-        Layout.init(); // init layout
-        QuickSidebar.init(); // init quick sidebar
-        Demo.init(); // init demo features
-        Index.init();
-        Index.initDashboardDaterange();
+    $(function () {
+        //初始化Metronic
+        Metronic.init();
+        //初始化布局
+        Layout.init();
+        //初始化页面
+        initFrame();
+        //初始页面
+        initMenuEvent();
     });
+
+    //初始化主页面
+    var initFrame = function () {
+        $("#iframeContent").html($(document.getElementById('iframePage').contentWindow.document.body).html());
+    }
+
+    //初始化菜单事件
+    var initMenuEvent = function () {
+        //取得所有class为Submenu
+
+        $(".sub-menu").find("li a").each(function(){
+
+        });
+    }
 </script>
 {% end %}
